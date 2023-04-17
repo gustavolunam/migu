@@ -11,27 +11,32 @@ function Navbar() {
         <div className='navbar'>
             <Link to="/">
                 <button>
-                    <HomeIcon />
-                </button>
-            </Link>
-            <Link to="/cupons">
-                <button>
-                    <LoyaltyIcon />
-                </button>
-            </Link>
-            <Link to="/profile">
-                <button>
-                    <PersonIcon />
+                    <HomeIcon className='icon' fontSize="large" />
+                    <p>Inicio</p>
                 </button>
             </Link>
             <Link to="/shoppinglist">
                 <button>
-                    <ShoppingCartIcon />
+                    <ShoppingCartIcon className='icon' fontSize="large" />
+                    <p>Carrito</p>
+                </button>
+            </Link>
+            <Link to="/profile">
+                <button>
+                    <PersonIcon className='icon' fontSize="large" />
+                    <p>Perfil</p>
+                </button>
+            </Link>
+            <Link to="/cupons">
+                <button>
+                    <LoyaltyIcon className='icon' fontSize="large" />
+                    <p>Cupones</p>
                 </button>
             </Link>
             <Link to="/map">
                 <button>
-                    <ViewInArIcon />
+                    <ViewInArIcon className='icon' fontSize="large" />
+                    <p>Mapa</p>
                 </button>
             </Link>
         </div>
