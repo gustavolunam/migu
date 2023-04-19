@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 import useProductDisplay from "../hooks/useProductDisplay"
 import { productData } from "../data/productData"
+import '../styles/Products.css'
 
 function Products() {
   const DisplayProducts = useProductDisplay(productData);
 
   return (
     <div>
-      <div className='header'>
+      <div className='productsHeader'>
         <Link to="/shopping-list">
           <button> Regresar </button>
         </Link>
