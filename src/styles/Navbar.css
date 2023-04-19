@@ -3,16 +3,32 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .navbar a {
     text-decoration: none;
-    margin: 20px 30px 20px 30px;
+    float: left;
+    justify-content: space-evenly;
 }
 
 .navbar button {
+    color: rgb(249, 130, 130);  
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.navbar button:focus {
+    color: #f34747;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+.navbar .icon {
+    margin-top: 5px;
+}
+
+.navbar p {
+    margin-top: 0px;
 }
