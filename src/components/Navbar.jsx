@@ -15,7 +15,7 @@ function Navbar() {
                     <p>Inicio</p>
                 </button>
             </Link>
-            <Link to="/shoppinglist">
+            <Link to="/shopping-list">
                 <button>
                     <ShoppingCartIcon className='icon' fontSize="large" />
                     <p>Carrito</p>
