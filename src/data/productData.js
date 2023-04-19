@@ -44,7 +44,7 @@ const productData = [
     { 
         id: 8, 
         image: 'https://d2r9epyceweg5n.cloudfront.net/stores/001/920/241/products/melon-chino-la-parcelita-011-6932998a9312c699a316363883234487-1024-1024.jpg',
-        name: 'Melon Chino',
+        name: 'Melón Chino',
         price: '60.01',
     },
     { 
