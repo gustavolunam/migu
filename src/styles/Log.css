@@ -1,0 +1,47 @@
+.login-title {
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+.login-title h1 {
+    height: 60px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.auth-form-container {
+    display: block;
+}
+
+.auth-form-container label {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.auth-form-container input {
+    display: block;
+    font-size: 16px;
+    font-size: Max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid #8b8a8b;
+    border-radius: 4px;
+    transition: 180ms box-shadow ease-in-out;
+}
+
+.auth-form-container button {
+    padding: 15px 25px 15px 25px;
+    width: 50vw;
+    background-color: #f8333c;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    font-family: 'Lato';
+    font-size: 25px;
+    font-weight: bold;
+}
