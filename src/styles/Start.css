@@ -9,17 +9,17 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: #f8333c;
+    background-color: #e35869;
 }
 
 .logo {
     margin: 200px auto 40px auto;
-    width: 80%;
+    width: 300px;
 }
 
 .start button {
     padding: 20px 30px 20px 30px;
-    width: 70vw;
+    width: 300px;
     background-color: white;
     border: none;
     border-radius: 40px;
