@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from '@emotion/styled'
-import CryptoImages from '../assets/homebanner.jpg'
 
 const Container = styled.div`
   max-width: 900px;
@@ -33,7 +32,6 @@ function Log() {
 
   return (
     <Container>
-      <Image src={CryptoImages} alt="homebanner" />
       <div className="auth-form-container">
         <form onSubmit={(handleSubmit)}>
           <label htmlfor="email">email</label>
