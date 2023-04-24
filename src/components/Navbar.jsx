@@ -9,13 +9,13 @@ import '../styles/Navbar.css'
 function Navbar() {
     return (
         <div className='navbar'>
-            <Link to="/">
+            <Link to="/home">
                 <button>
                     <HomeIcon className='icon' fontSize="large" />
                     <p>Inicio</p>
                 </button>
             </Link>
-            <Link to="/shoppinglist">
+            <Link to="/shopping-list">
                 <button>
                     <ShoppingCartIcon className='icon' fontSize="large" />
                     <p>Carrito</p>

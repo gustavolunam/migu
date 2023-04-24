@@ -1,0 +1,43 @@
+.start {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f8333c;
+}
+
+.logo {
+    margin: 200px auto 40px auto;
+    width: 80%;
+}
+
+.start button {
+    padding: 20px 30px 20px 30px;
+    width: 70vw;
+    background-color: white;
+    border: none;
+    border-radius: 40px;
+    color: #f8333c;
+    font-family: 'Lato';
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.start button:hover {
+    background-color: #fbeac6;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+.start hr {
+    margin: 30px;
+    width: 50vw;
+    height: 3px;
+    background-color: white;
+}
