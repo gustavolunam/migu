@@ -10,6 +10,11 @@
     align-items: center;
     flex-direction: column;
     background-color: #f8333c;
+    /*
+    background-image: "../assets/logo.png";
+    background-size: 'cover';
+    background-repeat: 'no-repeat'
+    */
 }
 
 .logo {
