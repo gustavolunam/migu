@@ -8,11 +8,11 @@ function Start() {
         <div className="start" >
                 <img className="logo" src={Logo} />
                 <Link to="/log">
-                    <button>Log In</button>
+                    <button>Iniciar sesion</button>
                 </Link>
                 <hr />
                 <Link to="/register">
-                    <button>Sign Up</button>
+                    <button>Registrarme</button>
                 </Link>
         </div>
     )
