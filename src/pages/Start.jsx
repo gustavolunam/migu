@@ -8,7 +8,7 @@ function Start() {
         <div className="start" >
                 <img className="logo" src={Logo} />
                 <Link to="/log">
-                    <button>Iniciar sesion</button>
+                    <button>Iniciar sesión</button>
                 </Link>
                 <hr />
                 <Link to="/register">
