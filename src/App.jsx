@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import ShoppingList from "./pages/ShoppingList";
 import Products from "./pages/Products";
+import Profile from "./pages/Profile";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 
@@ -25,8 +26,8 @@ const App = () => {
               <Route path="/edit-shopping-list" exact element={<Products />} />
               <Route path="/shopping-list" exact element={<ShoppingList />} />
               <Route path="/map" exact element={<Map />} />
-              {/*<Route path="/cupons" exact element={<Cupons />} />
-              <Route path="/Profile" exact element={<Profile />} />*/}
+              {/*<Route path="/cupons" exact element={<Cupons />} />*/}
+              <Route path="/profile" exact element={<Profile />} />
             </Route>
           </Routes>
         </Router>
