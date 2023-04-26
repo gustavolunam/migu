@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useFormatError from "../hooks/useFormatError";
+import '../styles/Auth.css'
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, onValue, set, push, update } from "firebase/database";
