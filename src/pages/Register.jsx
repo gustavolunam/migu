@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import useFormatError from "../hooks/useFormatError";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, onValue, set, push, update } from "firebase/database";
@@ -7,12 +9,16 @@ import { initializeApp } from "firebase/app";
 import { auth, app } from "../apis/firebaseConfig"
 
 function Register() {
+    const navigate = useNavigate();
     const db = getDatabase();
     const dbRef = ref(db, 'Usuarios');
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const formatError = useFormatError();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -38,13 +44,13 @@ function Register() {
                         console.log(key2);
 
                     })
+                navigate('/log');
                 alert("REGISTRO EXITOSO");
             })
             .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // ..
-                alert("Fallo " + errorMessage);
+                var errorDescription = formatError(error.code);
+                alert(error.code);
+                setErrorMessage(errorDescription);
             });
     }
 
@@ -53,6 +59,9 @@ function Register() {
             <div className="auth-form">
                 <form onSubmit={(handleSubmit)}>
                     <h1>Registro</h1>
+                    {errorMessage && (
+                        <p className="error"> {errorMessage} </p>
+                    )}
                     <div className="auth-form-content">
                         <div className="input-field">
                             <input onChange={(e) => setEmail(e.target.value)} type="name" placeholder="Nombre Completo" id="name" name="name" />
@@ -66,7 +75,7 @@ function Register() {
                     </div>
                     <div className="auth-buttons">
                         <Link to="/log">
-                            <button>Iniciar sesion</button>
+                            <button>Iniciar sesión</button>
                         </Link>
                         <button onClick={registro}>Registrame</button>
                     </div>
