@@ -50,7 +50,6 @@ function Register() {
             })
             .catch((error) => {
                 var errorDescription = formatError(error.code);
-                alert(error.code);
                 setErrorMessage(errorDescription);
             });
     }
@@ -65,13 +64,17 @@ function Register() {
                     )}
                     <div className="auth-form-content">
                         <div className="input-field">
-                            <input onChange={(e) => setEmail(e.target.value)} type="name" placeholder="Nombre Completo" id="name" name="name" />
+                            <p className="auth-label">Nombre Completo</p>
+                            <input onChange={(e) => setEmail(e.target.value)} type="name" placeholder="John Doe" id="name" name="name" required />
                         </div>
                         <div className="input-field">
-                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="example@email.com" id="email" name="email" />
+                            <p className="auth-label">Correo Electrónico</p>
+                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="ejemplo@email.com" id="email" name="email" required />
                         </div>
                         <div className="input-field">
-                            <input onChange={(e) => setPass(e.target.value)} type="password" placeholder="*******" id="password" name="password" />
+                            <p className="auth-label">Contraseña</p>
+                            <p className="auth-description">Mínimo de 6 caracteres</p>
+                            <input onChange={(e) => setPass(e.target.value)} type="password" placeholder="******" id="password" name="password" required />
                         </div>
                     </div>
                     <div className="auth-buttons">

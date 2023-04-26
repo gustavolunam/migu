@@ -10,7 +10,7 @@ const useFormatError = () => {
             case 'auth/user-not-found':
                 return 'No existe una cuenta asociada con el correo electrónico.';
             case 'auth/email-already-in-use':
-                return 'El correo electrónica ya se encuentra en uso.';
+                return 'El correo electrónico ya se encuentra en uso.';
             case 'auth/weak-password':
                 return 'La contraseña debe de tener una longitud mínima de 6 caracteres.'
             case 'auth/too-many-requests':

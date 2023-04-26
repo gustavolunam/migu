@@ -33,7 +33,6 @@ function Log() {
       })
       .catch((error) => {
         var errorDescription = formatError(error.code);
-        alert(error.code);
         setErrorMessage(errorDescription);
       });
   }
@@ -48,10 +47,12 @@ function Log() {
           )}
           <div className="auth-form-content">
             <div className="input-field">
-              <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="example@email.com" id="email" name="email" />
+              <p className="auth-label">Correo Electrónico</p>
+              <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="ejemplo@email.com" id="email" name="email" />
             </div>
             <div className="input-field">
-              <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="*******" id="password" name="password" />
+              <p className="auth-label">Contraseña</p>
+              <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="******" id="password" name="password" />
             </div>
           </div>
           <div className="auth-buttons">
