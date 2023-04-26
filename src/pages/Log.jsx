@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import useFormatError from "../hooks/useFormatError";
 import '../styles/Auth.css'
 
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, onValue, set, push, update } from "firebase/database";
 import { initializeApp } from "firebase/app";
 import { auth, app } from "../apis/firebaseConfig"
-
-import { useNavigate } from "react-router-dom";
 
 function Log() {
   const navigate = useNavigate();
@@ -16,6 +16,9 @@ function Log() {
 
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const formatError = useFormatError();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,10 +32,9 @@ function Log() {
         alert("INICIO SESION EXITOSO");
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ..
-        alert("Fallo " + errorMessage);
+        var errorDescription = formatError(error.code);
+        alert(error.code);
+        setErrorMessage(errorDescription);
       });
   }
 
@@ -41,6 +43,9 @@ function Log() {
       <div className="auth-form">
         <form onSubmit={(handleSubmit)}>
           <h1>Log In</h1>
+          {errorMessage && (
+            <p className="error"> {errorMessage} </p>
+          )}
           <div className="auth-form-content">
             <div className="input-field">
               <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="example@email.com" id="email" name="email" />
@@ -51,9 +56,9 @@ function Log() {
           </div>
           <div className="auth-buttons">
             <Link to="/register">
-              <button>Registrate aqui</button>
+              <button>Registrate aquí</button>
             </Link>
-            <button onClick={inicio}>Iniciar sesion</button>
+            <button onClick={inicio}>Iniciar sesión</button>
           </div>
         </form>
       </div>
