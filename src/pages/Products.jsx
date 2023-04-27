@@ -1,21 +1,33 @@
 import { Link } from 'react-router-dom'
-import useProductDisplay from "../hooks/useProductDisplay"
-import { productData } from "../data/productData"
+import List from '../components/List';
+
+//import useProductDisplay from "../hooks/useProducts"
+//import { productData } from "../data/productData"
+import { useProducts } from '../hooks/useProducts';
 import '../styles/Products.css'
 
 function Products() {
-  const DisplayProducts = useProductDisplay(productData);
+  const [products, areProductsLoading, error] = useProducts();
+  //const DisplayProducts = useProductDisplay(productData);
 
   return (
-    <div>
-      <div className='productsHeader'>
-        <Link to="/shopping-list">
-          <button> Regresar </button>
-        </Link>
-        <h1>Agrega un Producto</h1>
-      </div>
-      <DisplayProducts />
-    </div>
+    <>
+    { areProductsLoading ? <p>Loading...</p> :(
+      <> 
+        <div>
+          <div className='productsHeader'>
+            <Link to="/shopping-list">
+              <button> Regresar </button>
+            </Link>
+            <h1>Agrega un Producto</h1>
+          </div>
+          <List items={products} />
+        </div>
+      </>
+    )}
+
+    
+    </>
   )
 }
 
