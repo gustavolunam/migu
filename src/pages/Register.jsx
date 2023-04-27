@@ -28,37 +28,14 @@ function Register() {
         console.log(name)
     }
 
-    const validate = () =>{
-        if(!validName.test(name)){
-            var errorDescription = formatError('auth/invalid-name');
-            setErrorMessage(errorDescription);
-        }
-        else if(!validEmail.test(email)){
-            console.log("email");
-            var errorDescription = formatError('auth/invalid-email');
-            setErrorMessage(errorDescription);
-        }
-        else if(!validPassword.test(pass)){
-            console.log("pass");
-            var errorDescription = formatError('auth/invalid-password');
-            setErrorMessage(errorDescription);
-        }
-        else{
-            registro;
-        }
-      }
+
 
     const registro = () => {
-        
-        //Si es algo invalido imprimir el error
-
-
         
         // var name = document.getElementById("nameR").value;
         // var email = document.getElementById("emailR").value;
         // var pass = document.getElementById("passR").value;
         //alert("email="+ email + " pass=" +pass);
-        
         createUserWithEmailAndPassword(auth, email, pass)
             .then(auth => {
                 push(dbRef, {
@@ -80,6 +57,23 @@ function Register() {
             });
     }
 
+    const validate = () =>{
+        if(!validName.test(name)){
+            var errorDescription = formatError('auth/invalid-name');
+            setErrorMessage(errorDescription);
+        }
+        else if(!validEmail.test(email)){
+            var errorDescription = formatError('auth/invalid-email');
+            setErrorMessage(errorDescription);
+        }
+        else if(!validPassword.test(pass)){
+            var errorDescription = formatError('auth/invalid-password');
+            setErrorMessage(errorDescription);
+        }
+        else{
+            registro();
+        }
+    }
     return (
         <div className="auth-body">
             <div className="auth-form">

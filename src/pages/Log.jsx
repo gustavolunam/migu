@@ -7,7 +7,8 @@ import '../styles/Auth.css'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, onValue, set, push, update } from "firebase/database";
 import { initializeApp } from "firebase/app";
-import { auth, app } from "../apis/firebaseConfig"
+import { auth, app } from "../apis/firebaseConfig";
+import { validEmail,validPassword } from "../tools/Regex";
 
 function Log() {
   const navigate = useNavigate();
@@ -37,6 +38,21 @@ function Log() {
       });
   }
 
+  const validate = () =>{
+    if(!validEmail.test(email)){
+        var errorDescription = formatError('auth/invalid-email');
+        setErrorMessage(errorDescription);
+    }
+    else if(!validPassword.test(pass)){
+        var errorDescription = formatError('auth/invalid-password');
+        setErrorMessage(errorDescription);
+    }
+    else{
+        inicio();
+    }
+  }
+
+
   return (
     <div className="auth-body">
       <div className="auth-form">
@@ -59,7 +75,7 @@ function Log() {
             <Link to="/register">
               <button>Registrate aquí</button>
             </Link>
-            <button onClick={inicio}>Iniciar sesión</button>
+            <button onClick={validate}>Iniciar sesión</button>
           </div>
         </form>
       </div>
