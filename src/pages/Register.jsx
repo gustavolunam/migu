@@ -82,13 +82,13 @@ function Register() {
                         </div>
                         <div className="input-field">
                             <p className="auth-label">Correo Electrónico</p>
-                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="ejemplo@email.com" id="email" name="email" required />
+                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="ejemplo@email.com" id="email" name="email" />
                         </div>
                         <div className="input-field">
                             <p className="auth-label">Contraseña</p>
                             <p className="auth-description">Mínimo de 6 caracteres</p>
                             <p className="auth-description">Usar minúsculas, mayúsculas y números</p>
-                            <input onChange={(e) => setPass(e.target.value)} type="password" placeholder="******" id="password" name="password" required />
+                            <input onChange={(e) => setPass(e.target.value)} type="password" placeholder="******" id="password" name="password" />
                         </div>
                     </div>
                     <div className="auth-buttons">

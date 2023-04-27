@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useFormatError from "../hooks/useFormatError";
-import { validEmail,validPassword } from "../tools/Regex";
+import { validEmail, validPassword } from "../tools/Regex";
 import '../styles/Auth.css'
 
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref } from "firebase/database";
 import { auth } from "../apis/firebaseConfig";
 
+var loginAttempts = 5;
 
 function Log() {
   const navigate = useNavigate();
@@ -33,24 +34,38 @@ function Log() {
       })
       .catch((error) => {
         var errorDescription = formatError(error.code);
+        loginAttempts = loginAttempts - 1;
+        console.log(loginAttempts);
         setErrorMessage(errorDescription);
       });
   }
 
-  const validate = () =>{
-    if(!validEmail.test(email)){
-        var errorDescription = formatError('auth/invalid-email');
-        setErrorMessage(errorDescription);
+  const validate = () => {
+    if (loginAttempts == 0) {
+      var errorDescription = formatError('auth/too-many-requests');
+      setErrorMessage(errorDescription);
+      setTimeout(() => {
+        loginAttempts = 5;
+        console.log(loginAttempts);
+      },10000)
     }
-    else if(!validPassword.test(pass)){
-        var errorDescription = formatError('auth/invalid-password');
-        setErrorMessage(errorDescription);
+    else if (!validEmail.test(email)) {
+      var errorDescription = formatError('auth/invalid-email');
+      setErrorMessage(errorDescription);
+      loginAttempts = loginAttempts - 1;
+      console.log(loginAttempts);
+
     }
-    else{
-        inicio();
+    else if (!validPassword.test(pass)) {
+      var errorDescription = formatError('auth/invalid-password');
+      setErrorMessage(errorDescription);
+      loginAttempts = loginAttempts - 1;
+      console.log(loginAttempts);
+    }
+    else {
+      inicio();
     }
   }
-
 
   return (
     <div className="auth-body">
@@ -63,7 +78,7 @@ function Log() {
           <div className="auth-form-content">
             <div className="input-field">
               <p className="auth-label">Correo Electrónico</p>
-              <input value={email} onChange={(e) => setEmail(e.target.value)} type ="email" placeholder="ejemplo@email.com" id="email" name="email" />
+              <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="ejemplo@email.com" id="email" name="email" />
             </div>
             <div className="input-field">
               <p className="auth-label">Contraseña</p>
