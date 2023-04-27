@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useFormatError from "../hooks/useFormatError";
+import { validEmail,validPassword } from "../tools/Regex";
 import '../styles/Auth.css'
 
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { getDatabase, ref, onValue, set, push, update } from "firebase/database";
-import { initializeApp } from "firebase/app";
-import { auth, app } from "../apis/firebaseConfig";
-import { validEmail,validPassword } from "../tools/Regex";
+import { getDatabase, ref } from "firebase/database";
+import { auth } from "../apis/firebaseConfig";
+
 
 function Log() {
   const navigate = useNavigate();
@@ -23,7 +23,6 @@ function Log() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email)
   }
 
   const inicio = () => {
