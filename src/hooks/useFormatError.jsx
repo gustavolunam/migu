@@ -15,6 +15,10 @@ const useFormatError = () => {
                 return 'La contraseña debe de tener una longitud mínima de 6 caracteres.'
             case 'auth/too-many-requests':
                 return 'Superó el número máximo de intentos. Intente más tarde.';
+            case 'auth/invalid-password':
+                return 'La contraseña es inválida.';
+            case 'auth/invalid-name':
+                return 'El nombre es inválido.';
             default:
                 return '';
         }

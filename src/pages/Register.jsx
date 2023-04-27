@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { validEmail,validPassword,validName } from "../tools/Regex";
+import { UserAuth } from "../context/AuthContext";
 import useFormatError from "../hooks/useFormatError";
 import '../styles/Auth.css'
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { getDatabase, ref, onValue, set, push, update } from "firebase/database";
-import { initializeApp } from "firebase/app";
-import { auth, app } from "../apis/firebaseConfig"
+import { getDatabase, ref, push } from "firebase/database";
+import { auth } from "../apis/firebaseConfig"
+
 
 function Register() {
     const navigate = useNavigate();
@@ -20,19 +22,13 @@ function Register() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const formatError = useFormatError();
+    const { createUser } = UserAuth();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(email)
-        console.log(name)
     }
 
     const registro = () => {
-        // var name = document.getElementById("nameR").value;
-        // var email = document.getElementById("emailR").value;
-        // var pass = document.getElementById("passR").value;
-        //alert("email="+ email + " pass=" +pass);
-
         createUserWithEmailAndPassword(auth, email, pass)
             .then(auth => {
                 push(dbRef, {
@@ -45,16 +41,32 @@ function Register() {
                         console.log(key2);
 
                     })
-                navigate('/log');
+                navigate('/home');
                 alert("REGISTRO EXITOSO");
             })
             .catch((error) => {
                 var errorDescription = formatError(error.code);
-                alert(error.code);
                 setErrorMessage(errorDescription);
             });
     }
 
+    const validate = () =>{
+        if(!validName.test(name)){
+            var errorDescription = formatError('auth/invalid-name');
+            setErrorMessage(errorDescription);
+        }
+        else if(!validEmail.test(email)){
+            var errorDescription = formatError('auth/invalid-email');
+            setErrorMessage(errorDescription);
+        }
+        else if(!validPassword.test(pass)){
+            var errorDescription = formatError('auth/invalid-password');
+            setErrorMessage(errorDescription);
+        }
+        else{
+            registro();
+        }
+    }
     return (
         <div className="auth-body">
             <div className="auth-form">
@@ -65,20 +77,25 @@ function Register() {
                     )}
                     <div className="auth-form-content">
                         <div className="input-field">
-                            <input onChange={(e) => setEmail(e.target.value)} type="name" placeholder="Nombre Completo" id="name" name="name" />
+                            <p className="auth-label">Nombre Completo</p>
+                            <input onChange={(e) => setName(e.target.value)} type="name" placeholder="John Doe" id="name" name="name" />
                         </div>
                         <div className="input-field">
-                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="example@email.com" id="email" name="email" />
+                            <p className="auth-label">Correo Electrónico</p>
+                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="ejemplo@email.com" id="email" name="email" />
                         </div>
                         <div className="input-field">
-                            <input onChange={(e) => setPass(e.target.value)} type="password" placeholder="*******" id="password" name="password" />
+                            <p className="auth-label">Contraseña</p>
+                            <p className="auth-description">Mínimo de 6 caracteres</p>
+                            <p className="auth-description">Usar minúsculas, mayúsculas y números</p>
+                            <input onChange={(e) => setPass(e.target.value)} type="password" placeholder="******" id="password" name="password" />
                         </div>
                     </div>
                     <div className="auth-buttons">
                         <Link to="/log">
                             <button>Iniciar sesión</button>
                         </Link>
-                        <button onClick={registro}>Registrame</button>
+                        <button onClick={validate}>Registrame</button>
                     </div>
                 </form>
             </div>
