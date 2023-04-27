@@ -4,6 +4,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0px 14px 0;
+    background-color: #fff;
 }
 
 .navbar a {
