@@ -1,6 +1,13 @@
-.shoppingListTitle button {
+.shoppingListHeader button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
     justify-content: center;
+}
+
+.shoppingListContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
