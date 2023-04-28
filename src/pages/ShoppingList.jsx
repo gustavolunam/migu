@@ -10,18 +10,16 @@ function ShoppingList() {
 
     return (
         <>
-                    <div className='shoppingListTitle'>
-                        <Link to="/edit-shopping-list">
-                                <button> Editar Lista de Compras </button>
-                        </Link>
-                    </div>
-                    <div>
-                        {/* <Filter setProducts={setProducts} /> */}
-                        <List items={shoppingListData} />
-                    </div>
-    
+            <div className='shoppingListHeader'>
+                <Link to="/edit-shopping-list">
+                    <button> Editar Lista de Compras </button>
+                </Link>
+            </div>
+            <div className='shoppingListContent'>
+                {/* <Filter setProducts={setProducts} /> */}
+                <List items={shoppingListData} />
+            </div>
         </>
-        
     )
 }
 

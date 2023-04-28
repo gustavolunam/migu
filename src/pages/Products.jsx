@@ -12,21 +12,21 @@ function Products() {
 
   return (
     <>
-    { areProductsLoading ? <p>Loading...</p> :(
-      <> 
-        <div>
-          <div className='productsHeader'>
-            <Link to="/shopping-list">
-              <button> Regresar </button>
-            </Link>
-            <h1>Agrega un Producto</h1>
+      {areProductsLoading ? <p>Loading...</p> : (
+        <>
+          <div>
+            <div className='productsHeader'>
+              <Link to="/shopping-list">
+                <button> Regresar </button>
+              </Link>
+              <h1>Agrega un Producto</h1>
+            </div>
+            <div className='productsContent'>
+              <List items={products} />
+            </div>
           </div>
-          <List items={products} />
-        </div>
-      </>
-    )}
-
-    
+        </>
+      )}
     </>
   )
 }
