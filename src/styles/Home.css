@@ -27,6 +27,7 @@
     height: 60px;
     font-weight: 50;
     color: rgb(255, 57, 57);
+    margin-bottom: 40px;
 }
 
 .headerContainer p {
@@ -34,6 +35,7 @@
     font-size: 40px;
     font-weight: lighter;
     color: rgb(58, 56, 56);
+    margin-top: 30px;
 }
 
 .headerContainer button {
