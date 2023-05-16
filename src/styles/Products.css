@@ -4,3 +4,10 @@
     cursor: pointer;
     justify-content: center;
 }
+
+.productsContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
