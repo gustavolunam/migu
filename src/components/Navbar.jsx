@@ -33,7 +33,7 @@ function Navbar() {
                     <p>Cupones</p>
                 </button>
             </Link>
-            <Link to="/map">
+            <Link to="https://cheerful-fenglisu-41a334.netlify.app/9.prueba.html">
                 <button>
                     <ViewInArIcon className='icon' fontSize="large" />
                     <p>Mapa</p>
