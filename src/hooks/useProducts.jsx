@@ -9,7 +9,7 @@ const useProducts = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    /*
+    
     const db=getDatabase();
     const dbRef = ref(db, 'Productos');
 
@@ -35,7 +35,7 @@ const useProducts = () => {
         setError(true)
         }
     );
-    */
+    /*
     let fetchedProductos = [];
 
     Axios.get("http://localhost:9000/api")
@@ -54,10 +54,14 @@ const useProducts = () => {
           setProducts(fetchedProductos);
         });
       });
-    setIsLoading(false);
-    setError(false);
+      */
+    // setIsLoading(false);
+    
+
+    // setError(false);
   }, [])
   return [products, isLoading, error]
+  
 }
 
 export { useProducts };
