@@ -1,7 +1,7 @@
 function Game() {
     return (
         <div>
-            Free Bitcoin 🤑
+            <p> Inserta tu juego aquí </p>
         </div>
     )
 }
