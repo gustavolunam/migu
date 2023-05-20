@@ -8,8 +8,9 @@ const useProducts = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+
     setIsLoading(true);
-    
+    /*
     const db=getDatabase();
     const dbRef = ref(db, 'Productos');
 
@@ -35,10 +36,10 @@ const useProducts = () => {
         setError(true)
         }
     );
-    /*
+    */
     let fetchedProductos = [];
 
-    Axios.get("http://localhost:9000/api")
+    Axios.get("https://apimigu.vercel.app/")
       .then((response) => {
         Object.values(response.data).map((product) => {
           for (let i = 0; i < product.length; i++) {
@@ -54,11 +55,10 @@ const useProducts = () => {
           setProducts(fetchedProductos);
         });
       });
-      */
-    // setIsLoading(false);
+     setIsLoading(false);
     
 
-    // setError(false);
+     setError(false);
   }, [])
   return [products, isLoading, error]
   
