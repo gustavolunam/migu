@@ -40,7 +40,6 @@ const useProducts = () => {
 
     Axios.get("https://apimigu.vercel.app/")
       .then((response) => {
-        console.log(response);
         Object.values(response.data).map((product) => {
           for (let i = 0; i < product.length; i++) {
             var id = product[i].idProducto;
