@@ -1,9 +1,39 @@
 .shoppingListHeader button {
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     justify-content: center;
+    background-color: #fd4747;
+    height: 50px;
+    width: 180px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    margin: .5rem;
+    position: fixed;
+    bottom: 110px;
+    right: 10px;
 }
+.editar {
+    margin-right: .8rem;
+    height: 25px;
+    width: 25px;
+}
+.shoppingListHeader button:hover {
+    background-color: #f02626;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+.shoppingListHeader h1 {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .shoppingListContent {
     display: flex;

@@ -4,6 +4,9 @@ import '../styles/ShoppingList.css'
 //import { useProducts } from '../hooks/useProducts';
 //import { shoppingListData } from '../data/shoppingListData'
 import { listaCompras } from '../hooks/listaCompras';
+import { shoppingListData } from '../data/shoppingListData';
+import editImage from '../assets/edit.png';
+
 
 function ShoppingList() {
 
@@ -12,9 +15,15 @@ function ShoppingList() {
     return (
         <>
             <div className='shoppingListHeader'>
+
                 <Link to="/edit-shopping-list">
-                    <button> Editar Lista de Compras </button>
+                    <button>
+                    <img className="editar" src={editImage}/>
+                    EDITAR
+                    </button>
                 </Link>
+                <h1>Tus Productos</h1>
+    
             </div>
             <div className='shoppingListContent'>
                 {/* <Filter setProducts={setProducts} /> */}

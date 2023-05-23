@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import List from '../components/List';
 import { useProducts } from '../hooks/useProducts';
-import '../styles/Products.css'
+import '../styles/Products.css';
+import returnImage from '../assets/back arrow.png';
 
 function Products() {
   const [products, areProductsLoading, error] = useProducts();
@@ -14,7 +15,7 @@ function Products() {
           <div>
             <div className='productsHeader'>
               <Link to="/shopping-list">
-                <button> Regresar </button>
+                <button><img className="returnArrow" src={returnImage} /></button>
               </Link>
               <h1>Agrega un Producto</h1>
             </div>
