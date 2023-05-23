@@ -3,6 +3,7 @@ import List from '../components/List';
 import '../styles/ShoppingList.css'
 //import { useProducts } from '../hooks/useProducts';
 import { shoppingListData } from '../data/shoppingListData';
+
 import editImage from '../assets/edit.png';
 
 function ShoppingList() {
