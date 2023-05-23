@@ -1,10 +1,30 @@
 .productsHeader button {
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     justify-content: center;
+    background-color: #fd4747;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    margin: .5rem;
+    position: fixed;
+    top: 2  0px;
+    left: 10px;
 }
-
+.returnArrow{
+    height: 25px;
+    width: 25px;
+}
+.productsHeader h1 {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .productsContent {
     display: flex;
     flex-direction: column;
