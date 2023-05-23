@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Cupons.css";
 import { cuponsData } from "../data/cuponsData"
-import useCuponDisplay from "../hooks/useCuponDisplay"
+import Cupones from "../components/Cupones"
 
 function showCuppons(){
   
@@ -21,7 +21,7 @@ function showCuppons(){
 
 function Cupons() {
 
-  const DisplayProducts = useCuponDisplay(cuponsData);
+  const DisplayProducts = Cupones(cuponsData);
 
   const [toggleState, setToggleState] = useState(1);
 
