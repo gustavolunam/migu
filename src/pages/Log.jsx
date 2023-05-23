@@ -6,12 +6,16 @@ import { validEmail, validPassword } from "../tools/Regex";
 import '../styles/Auth.css'
 
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { getDatabase, ref } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 import { auth } from "../apis/firebaseConfig";
+
+import { onAuthStateChanged } from "firebase/auth";
+
 
 var loginAttempts = 5;
 
 function Log() {
+
   const navigate = useNavigate();
   const db = getDatabase();
   const dbRef = ref(db, 'Usuarios');
