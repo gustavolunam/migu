@@ -9,7 +9,7 @@ function Memory() {
       setCards(newCards);
     }, []);
   
-    function flipCard(index) {
+    const flipCard = (index) => {
       if (matchedCards.includes(index)) {
         return;
       }
@@ -29,13 +29,15 @@ function Memory() {
           setFlippedCards([]);
         }, 1000);
       }
-    }
+    };
   
-    function resetGame() {
-      setCards([]);
+    const resetGame = () => {
+      const symbols = ['🌸', '🍉', '🌺', '🍕', '🌞', '🎉'];
+      const newCards = [...symbols, ...symbols].sort(() => 0.5 - Math.random());
+      setCards(newCards);
       setFlippedCards([]);
       setMatchedCards([]);
-    }
+    };
   
     return (
       <div>
