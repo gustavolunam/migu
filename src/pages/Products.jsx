@@ -1,8 +1,5 @@
 import { Link } from 'react-router-dom'
 import List from '../components/List';
-
-//import useProductDisplay from "../hooks/useProducts"
-//import { productData } from "../data/productData"
 import { useProducts } from '../hooks/useProducts';
 import '../styles/Products.css'
 

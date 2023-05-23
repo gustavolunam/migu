@@ -1,17 +1,16 @@
 import { CheckBox } from '@mui/icons-material';
 import '../styles/useCuponsDisplay.css'
 
-const useCuponDisplay = (items) => {
-
-    const useCuponDisplay = () => (
+const Listcupons = ({items}) => {
+    return(
         <>
             {items.map(item => (
-                <div className='cupons'>
+                <div key={item.nombre} className='cupons'>
                     <div className='cuponscontainer'>
-                        <p className="cuponType" >{item.type}</p>
-                        <h2 className="cuponDesc">{item.desc}</h2>
-                        <p className="cuponDate">{item.date}</p>
-                        <input type="checkbox" class="cuponButton"></input>
+                        <p className="cuponType" >{item.descripcion}</p>
+                        <h2 className="cuponDesc">{item.nombre}</h2>
+                        <p className="cuponDate">{item.fechaExp}</p>
+                        <input type="checkbox" className="cuponButton"></input>
                         {/*<button className='productCheckmark'> <CheckBox /> </button>*/}
                     </div>
                     <hr/>
@@ -19,8 +18,6 @@ const useCuponDisplay = (items) => {
             ))}
         </>
     )
-
-    return useCuponDisplay;
 }
 
-export default useCuponDisplay
+export default Listcupons
