@@ -31,6 +31,10 @@ const App = () => {
             <ProtectedRoute>
               <Game />
             </ProtectedRoute>} />
+            <Route path="/memory" exact element={
+            <ProtectedRoute>
+              <Memory />
+            </ProtectedRoute>} />
           </Route>
           <Route element={<WithNav />}>
             <Route path="/home" exact element={
