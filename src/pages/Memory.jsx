@@ -1,4 +1,4 @@
-const Memorama = () => {
+const Memory = () => {
   const [cards, setCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
@@ -60,4 +60,4 @@ const Memorama = () => {
   );
 };
 
-export default Memorama;
+export default Memory;
