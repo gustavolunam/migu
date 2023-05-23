@@ -2,13 +2,15 @@ import { Link } from 'react-router-dom'
 import List from '../components/List';
 import '../styles/ShoppingList.css'
 //import { useProducts } from '../hooks/useProducts';
+//import { shoppingListData } from '../data/shoppingListData'
+import { listaCompras } from '../hooks/listaCompras';
 import { shoppingListData } from '../data/shoppingListData';
-
 import editImage from '../assets/edit.png';
+
 
 function ShoppingList() {
 
-    //const [products, areProductsLoading, error] = useProducts();
+    const [prodSel, areprodSelLoading, error] = listaCompras();
 
     return (
         <>
@@ -25,7 +27,7 @@ function ShoppingList() {
             </div>
             <div className='shoppingListContent'>
                 {/* <Filter setProducts={setProducts} /> */}
-                <List items={shoppingListData} />
+                <List items={prodSel} />
             </div>
         </>
     )

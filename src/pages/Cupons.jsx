@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "../styles/Cupons.css";
-import { cuponsData } from "../data/cuponsData"
-import Cupones from "../components/Cupones"
+//import { cuponsData } from "../data/cuponsData"
+import Listcupons from "../components/Cupones"
+import { useCupons } from "../hooks/useCupons"
 
 function showCuppons(){
-  
 
   return (
+
     <div>
       <div className='productsHeader'>
         <Link to="/shopping-list">
@@ -20,8 +21,7 @@ function showCuppons(){
 }
 
 function Cupons() {
-
-  const DisplayProducts = Cupones(cuponsData);
+  const [cupons, CuponsLoading, error] = useCupons();
 
   const [toggleState, setToggleState] = useState(1);
 
@@ -56,7 +56,7 @@ function Cupons() {
           <h2>Disponibles</h2>
           <hr />
           <p>
-            <DisplayProducts />
+            <Listcupons items={cupons}  /> 
           </p>
         </div>
 
@@ -76,4 +76,4 @@ function Cupons() {
   );
 }
 
-export default Cupons;
+export default Cupons

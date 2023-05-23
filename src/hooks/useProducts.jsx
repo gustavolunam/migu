@@ -35,8 +35,8 @@ const useProducts = () => {
         console.log("The read failed"  + errorObject.name);
         setError(true)
         }
-    );
-    */
+    );*/
+    
     let fetchedProductos = [];
 
     Axios.get("https://apimigu.vercel.app/")
