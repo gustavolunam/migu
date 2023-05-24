@@ -26,7 +26,6 @@ const listaCompras = () => {
               fetchedProdSel.push({
                 id, imagen, nombre, precio
               });
-              console.log(id);
           });
     
     
