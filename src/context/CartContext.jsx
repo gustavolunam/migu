@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getDatabase, ref, push, set } from "firebase/database";
+import { getDatabase, ref, push, set, remove } from "firebase/database";
 import { auth } from "../apis/firebaseConfig"
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -24,7 +24,15 @@ export const CartContextProvider = (props) => {
     }
 
     const removeFromCart = (item) => {
-        console.log('Wahoo');
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+                const tasksRef = ref(db, `Usuarios/${uid}/ListaProductos/${item.id}/`);
+                remove(tasksRef).then(() => {
+                    console.log("Producto eliminado");
+                  });
+            }
+        });
     }
 
     const contextValue = {
