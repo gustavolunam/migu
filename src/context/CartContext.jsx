@@ -30,7 +30,7 @@ export const CartContextProvider = (props) => {
                 const tasksRef = ref(db, `Usuarios/${uid}/ListaProductos/${item.id}/`);
                 remove(tasksRef).then(() => {
                     console.log("Producto eliminado");
-                  });
+                });
             }
         });
     }
