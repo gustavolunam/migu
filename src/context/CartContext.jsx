@@ -14,7 +14,7 @@ export const CartContextProvider = (props) => {
             if (user) {
                 const uid = user.uid;
                 const dbRef1 = ref(db, `Usuarios/${uid}/ListaProductos/${item.id}/`);
-                push(dbRef1, {
+                set(dbRef1, {
                     nombre: item.nombre,
                     imagen: item.imagen,
                     precio: item.precio
