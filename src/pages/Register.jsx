@@ -15,7 +15,7 @@ import { onAuthStateChanged } from "firebase/auth";
 function Register() {
     const navigate = useNavigate();
     const db = getDatabase();
-    const dbRef = ref(db, 'Usuarios');
+    //const dbRef = ref(db, 'Usuarios');
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');

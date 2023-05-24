@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import { CartContext } from '../context/CartContext';
 import { useProducts } from '../hooks/useProducts';
 import List from '../components/List';
+import returnImage from '../assets/back arrow.png';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import '../styles/Products.css'
+import '../styles/Products.css';
 
 function Products() {
   const { addToCart } = useContext(CartContext);
@@ -17,7 +18,7 @@ function Products() {
           <div>
             <div className='productsHeader'>
               <Link to="/shopping-list">
-                <button> Regresar </button>
+                <button><img className="returnArrow" src={returnImage} /></button>
               </Link>
               <h1>Agrega un Producto</h1>
             </div>

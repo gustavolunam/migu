@@ -1,0 +1,30 @@
+.cuponscontainer{
+    display: flex;
+
+    justify-items: center;
+    align-items: center;
+
+    padding: 2rem;
+}
+
+.cuponType{
+    flex:25%;
+    font-size: 17px;
+    height:100px;
+}
+.cuponDesc{
+    flex:25%;
+    font-size: 15px;
+    height:100px;
+}
+.cuponDate{
+    flex:25%;
+    font-size: 17px;
+    height:100px;
+}
+.cuponButton{
+    flex:25%;
+    font-size: 17px;
+    height:100px;
+    margin: 100 0 0 0;
+}
