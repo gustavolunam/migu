@@ -26,7 +26,7 @@ function ShoppingList() {
                 </Link>
             </div>
             <div className='shoppingListContent'>
-                <List items={prodSel} icon={<DeleteIcon className='deleteIcon' fontSize='large' />} action={removeFromCart} />
+                <List items={prodSel} icon={<DeleteIcon className='deleteIcon' fontSize='large' />} action={removeFromCart} alert={"Producto eliminado exitosamente!"} />
             </div>
         </>
     )

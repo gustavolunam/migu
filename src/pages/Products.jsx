@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { CartContext } from '../context/CartContext';
 import { useProducts } from '../hooks/useProducts';
 import List from '../components/List';
-import returnImage from '../assets/back arrow.png';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import '../styles/Products.css';
@@ -18,13 +17,13 @@ function Products() {
         <>
           <div>
             <div className='productsHeader'>
-              <Link className='backToList'  to="/shopping-list">
+              <Link className='backToList' to="/shopping-list">
                 <ArrowBackIosNewIcon className='arrowBack' fontSize='medium' />
               </Link>
               <h1>Agrega un Producto</h1>
             </div>
             <div className='productsContent'>
-              <List items={products} icon={<AddCircleIcon className='addIcon' fontSize='large' />} action={addToCart}/>
+              <List items={products} icon={<AddCircleIcon className='addIcon' fontSize='large' />} action={addToCart} alert={"Producto agregado exitosamente!"}/>
             </div>
           </div>
         </>
