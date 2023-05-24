@@ -1,12 +1,13 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom'
-import List from '../components/List';
-import '../styles/ShoppingList.css'
-//import { useProducts } from '../hooks/useProducts';
 import { shoppingListData } from '../data/shoppingListData'
+import { CartContext } from '../context/CartContext';
+import List from '../components/List';
+import DeleteIcon from '@mui/icons-material/Delete';
+import '../styles/ShoppingList.css'
 
 function ShoppingList() {
-
-    //const [products, areProductsLoading, error] = useProducts();
+    const { removeFromCart } = useContext(CartContext);
 
     return (
         <>
@@ -17,7 +18,7 @@ function ShoppingList() {
             </div>
             <div className='shoppingListContent'>
                 {/* <Filter setProducts={setProducts} /> */}
-                <List items={shoppingListData} />
+                <List items={shoppingListData} icon={<DeleteIcon className='deleteIcon' fontSize='large'/>} action={removeFromCart}/>
             </div>
         </>
     )
