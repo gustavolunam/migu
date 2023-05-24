@@ -7,7 +7,6 @@ export const CartContext = createContext([]);
 
 export const CartContextProvider = (props) => {
     const db = getDatabase();
-    const dbRef = ref(db, 'Usuarios');
 
     const addToCart = (item) => {
         onAuthStateChanged(auth, (user) => {
