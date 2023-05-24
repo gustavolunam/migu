@@ -13,8 +13,8 @@ export const CartContextProvider = (props) => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 const uid = user.uid;
-                const dbRef1 = ref(db, `Usuarios/${uid}/ListaProductos/`);
-                push(dbRef1, {
+                const dbRef1 = ref(db, `Usuarios/${uid}/ListaProductos/${item.id}/`);
+                set(dbRef1, {
                     nombre: item.nombre,
                     imagen: item.imagen,
                     precio: item.precio
