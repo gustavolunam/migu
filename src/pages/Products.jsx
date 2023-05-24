@@ -1,12 +1,15 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom'
-import List from '../components/List';
+import { CartContext } from '../context/CartContext';
 import { useProducts } from '../hooks/useProducts';
-import '../styles/Products.css';
+import List from '../components/List';
 import returnImage from '../assets/back arrow.png';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import '../styles/Products.css';
 
 function Products() {
+  const { addToCart } = useContext(CartContext);
   const [products, areProductsLoading, error] = useProducts();
-  //const DisplayProducts = useProductDisplay(productData);
 
   return (
     <>
@@ -20,7 +23,7 @@ function Products() {
               <h1>Agrega un Producto</h1>
             </div>
             <div className='productsContent'>
-              <List items={products} />
+              <List items={products} icon={<AddCircleIcon className='addIcon' fontSize='large' />} action={addToCart}/>
             </div>
           </div>
         </>

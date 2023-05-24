@@ -1,21 +1,18 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom'
-import List from '../components/List';
-import '../styles/ShoppingList.css'
-//import { useProducts } from '../hooks/useProducts';
-//import { shoppingListData } from '../data/shoppingListData'
+import { CartContext } from '../context/CartContext';
 import { listaCompras } from '../hooks/listaCompras';
-import { shoppingListData } from '../data/shoppingListData';
+import List from '../components/List';
+import DeleteIcon from '@mui/icons-material/Delete';
 import editImage from '../assets/edit.png';
-
-
+import '../styles/ShoppingList.css'
 function ShoppingList() {
-
     const [prodSel, areprodSelLoading, error] = listaCompras();
+    const { removeFromCart } = useContext(CartContext);
 
     return (
         <>
             <div className='shoppingListHeader'>
-
                 <Link to="/edit-shopping-list">
                     <button>
                     <img className="editar" src={editImage}/>
@@ -23,11 +20,9 @@ function ShoppingList() {
                     </button>
                 </Link>
                 <h1>Tus Productos</h1>
-    
             </div>
             <div className='shoppingListContent'>
-                {/* <Filter setProducts={setProducts} /> */}
-                <List items={prodSel} />
+                <List items={prodSel} icon={<DeleteIcon className='deleteIcon' fontSize='large'/>} action={removeFromCart}/>
             </div>
         </>
     )
