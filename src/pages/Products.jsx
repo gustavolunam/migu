@@ -5,6 +5,7 @@ import { useProducts } from '../hooks/useProducts';
 import List from '../components/List';
 import returnImage from '../assets/back arrow.png';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import '../styles/Products.css';
 
 function Products() {
@@ -17,8 +18,8 @@ function Products() {
         <>
           <div>
             <div className='productsHeader'>
-              <Link to="/shopping-list">
-                <button><img className="returnArrow" src={returnImage} /></button>
+              <Link className='backToList'  to="/shopping-list">
+                <ArrowBackIosNewIcon className='arrowBack' fontSize='medium' />
               </Link>
               <h1>Agrega un Producto</h1>
             </div>

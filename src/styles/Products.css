@@ -1,23 +1,25 @@
-.productsHeader button {
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    justify-content: center;
-    background-color: #fd4747;
-    height: 40px;
-    width: 40px;
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    margin: .5rem;
+.productsHeader {
+    display: flex;
+    height: 80px;
+    width: 100vw;
     position: fixed;
-    top: 2  0px;
-    left: 10px;
+    top: 0px;
+    background-image: linear-gradient(45deg, #fd4747, #ff6767);
+    color: white;
 }
-.returnArrow{
-    height: 25px;
-    width: 25px;
+
+.productsHeader .backToList {
+    display: flex;
+    color: white;
+    margin: 30px 0px 0px 20px;
+    font-size: 12px;
 }
+
+.productsHeader h1 {
+    margin: 0px 0px 12px 35px;
+    font-size: 30px;
+}
+
 .productsHeader h1 {
     margin-top: 1rem;
     display: flex;
@@ -26,6 +28,7 @@
     align-items: center;
 }
 .productsContent {
+    padding: 80px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
