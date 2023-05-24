@@ -11,23 +11,12 @@
 .productsHeader .backToList {
     display: flex;
     color: white;
-    margin: 30px 0px 0px 10px;
+    margin: 30px 0px 0px 20px;
     font-size: 12px;
 }
 
-.productsHeader .backToList .arrowBack{
-    padding: 4px;
-}
-
-.productsHeader .backToList p {
-    display: flex;
-    color: white;
-    margin-top: 2px;
-    font-size: 13px;
-}
-
 .productsHeader h1 {
-    margin: 0px 0px 12px 26px;
+    margin: 0px 0px 12px 35px;
     font-size: 30px;
 }
 

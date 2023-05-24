@@ -19,9 +19,10 @@
     color: white;
     position: fixed;
     bottom: 110px;
+    height: 60px;
     right: 30px;
-    padding: auto;
-    font-size: 15px;
+    padding: 30px;
+    font-size: 20px;
 }
 
 .shoppingListEdit .editIcon {

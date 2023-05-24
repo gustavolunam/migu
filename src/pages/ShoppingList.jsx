@@ -20,7 +20,7 @@ function ShoppingList() {
             <div className='shoppingListEdit'>
                 <Link to="/edit-shopping-list">
                     <Fab variant="extended">
-                        <EditIcon className='editIcon' fontSize='small' />
+                        <EditIcon className='editIcon' fontSize='medium' />
                         Editar
                     </Fab>
                 </Link>

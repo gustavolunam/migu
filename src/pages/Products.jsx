@@ -19,8 +19,7 @@ function Products() {
           <div>
             <div className='productsHeader'>
               <Link className='backToList'  to="/shopping-list">
-                <ArrowBackIosNewIcon className='arrowBack' fontSize='small' />
-                <p>Regresar</p>
+                <ArrowBackIosNewIcon className='arrowBack' fontSize='medium' />
               </Link>
               <h1>Agrega un Producto</h1>
             </div>
