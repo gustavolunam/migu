@@ -1,30 +1,40 @@
 .cuponscontainer{
+    width: 90vw;
+    height: 100px;
     display: flex;
 
-    justify-items: center;
     align-items: center;
-
-    padding: 2rem;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 3.5rem;   
 }
 
-.cuponType{
-    flex:25%;
-    font-size: 17px;
-    height:100px;
-}
-.cuponDesc{
-    flex:25%;
-    font-size: 15px;
-    height:100px;
-}
 .cuponDate{
-    flex:25%;
     font-size: 17px;
-    height:100px;
+    margin-right: 20px;
+}
+.cuponscontainer h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+}
+.cuponscontainer p {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    word-break: break-word;
+}
+.cuponName {
+    flex: 2;
+    display: flex;
+    padding: 1rem;
+    justify-content: space-around;
 }
 .cuponButton{
-    flex:25%;
     font-size: 17px;
     height:100px;
-    margin: 100 0 0 0;
+    background-color: transparent;
+    border: none;
+}
+
+.cuponsFooter {
+    height: 15px;
 }

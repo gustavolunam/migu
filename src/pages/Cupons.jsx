@@ -4,75 +4,19 @@ import "../styles/Cupons.css";
 import Listcupons from "../components/Cupones"
 import { useCupons } from "../hooks/useCupons"
 
-function showCuppons(){
-
-  return (
-
-    <div>
-      <div className='productsHeader'>
-        <Link to="/shopping-list">
-          <button> Regresar </button>
-        </Link>
-        <h1>Agrega un Producto</h1>
-      </div>
-      
-    </div>
-  )
-}
 
 function Cupons() {
   const [cupons, CuponsLoading, error] = useCupons();
 
-  const [toggleState, setToggleState] = useState(1);
-
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
-
   return (
-    <div className="container">
-      <div class = "title">
-        Cupones
+    <>
+      <div className = "cuponsHeader">
+        <h1>Cupones</h1>
       </div>
-      <div className="bloc-tabs">
-        <button
-          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(1)}
-        >
-          Disponibles
-        </button>
-        <button
-          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(2)}
-        >
-          Expirados
-        </button>
+      <div className = "cuponsContent">
+         <Listcupons items={cupons}  /> 
       </div>
-
-      <div className="content-tabs">
-        <div
-          className={toggleState === 1 ? "content  active-content" : "content"}
-        >
-          <h2>Disponibles</h2>
-          <hr />
-          <p>
-            <Listcupons items={cupons}  /> 
-          </p>
-        </div>
-
-        <div
-          className={toggleState === 2 ? "content  active-content" : "content"}
-        >
-          <h2> Expirados</h2>
-          <hr />
-          <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
-            vel voluptatum?
-          </p>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 
