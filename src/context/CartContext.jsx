@@ -32,6 +32,7 @@ export const CartContextProvider = (props) => {
                 });
             }
         });
+        window.location.reload(false);
     }
 
     const contextValue = {
