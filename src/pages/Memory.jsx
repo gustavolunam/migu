@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import Board from '../components/Memory/Board/Board';
-const emojiList = [...'❤️⚽🥅💩🎱🛒🎮🍕'];
+const emojiList = [...'🍕🎮🎱💩⚽🥅'];
 
 const Memory = () => {
   const [shuffledMemoBlocks, setShuffledMemoBlocks] = useState([]);
-  const [selectedMemoBlock, setselectedMemoBlock] = useState(null); //Bloque seleccionado cuando se hace click
+  const [selectedMemoBlock, setselectedMemoBlock] = useState(null);
   const [animating, setAnimating] = useState(false);
+  const [gameWon, setGameWon] = useState(false);
 
-
-  useEffect(  () => {
+  useEffect( () => {
     const shuffledEmojiList = shuffleArray([...emojiList, ...emojiList]);
     setShuffledMemoBlocks(shuffledEmojiList.map( (emoji, i) => ({ index: i, emoji, flipped: false}) ));
-
   }, []);
 
   const shuffleArray = a => {
@@ -20,11 +19,10 @@ const Memory = () => {
         [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
-
   }
 
   const handleMemoClick = memoBlock => {
-    const flippedMemoBlock = { ...memoBlock, flipped: true }; 
+    const flippedMemoBlock = { ...memoBlock, flipped: true };
     let shuffledMemoBlocksCopy = [...shuffledMemoBlocks];
     shuffledMemoBlocksCopy.splice(memoBlock.index, 1, flippedMemoBlock);
     setShuffledMemoBlocks(shuffledMemoBlocksCopy);
@@ -42,10 +40,24 @@ const Memory = () => {
         setAnimating(false);
       }, 1000);
     }
+      // Verificar si todos los bloques han sido volteados correctamente
+    const allBlocksFlipped = shuffledMemoBlocksCopy.every(block => block.flipped);
+    if (allBlocksFlipped) {
+      setGameWon(true);
+    }
   }
 
   return (
-    <Board memoBlocks={shuffledMemoBlocks} animating={animating}  handleMemoClick={handleMemoClick} />
+    <>
+      <Board memoBlocks={shuffledMemoBlocks} animating={animating} handleMemoClick={handleMemoClick} />
+      {gameWon && (
+        <div className="popup">
+          <h2>FELICIDADES</h2>
+        </div>
+      )}
+    </>
   );
+  
 }
+
 export default Memory;

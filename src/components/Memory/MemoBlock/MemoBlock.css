@@ -1,16 +1,14 @@
-
 .memo-block {
-    cursor: pointer;
     aspect-ratio: 1 / 1;
 }
 
 .memo-block-front, .memo-block-back {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border-radius: 4px;
+    border-radius: 10px;
 }
   
 .memo-block-inner {
@@ -33,7 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 55px;
+    font-size: 50px;
 }
 
 .memo-block-front {
