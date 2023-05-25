@@ -18,8 +18,7 @@ body {
 }
 
 .cuponsContent {
-  padding-top: 2rem;
-  
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;

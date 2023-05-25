@@ -1,3 +1,6 @@
+.cupons{
+    margin:15px 0px;
+}
 .cuponscontainer{
     width: 90vw;
     height: 100px;
@@ -6,7 +9,6 @@
     align-items: center;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     border-radius: 25px;
-    margin: 3.5rem;   
 }
 
 .cuponDate{
@@ -36,5 +38,5 @@
 }
 
 .cuponsFooter {
-    height: 15px;
+    height: 5px;
 }
