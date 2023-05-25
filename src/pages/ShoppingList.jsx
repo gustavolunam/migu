@@ -6,7 +6,6 @@ import { listaCompras } from '../hooks/listaCompras';
 import List from '../components/List';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import editImage from '../assets/edit.png';
 import '../styles/ShoppingList.css'
 function ShoppingList() {
     const [prodSel, areprodSelLoading, error] = listaCompras();
