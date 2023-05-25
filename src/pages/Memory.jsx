@@ -1,63 +1,51 @@
-const Memorama = () => {
-  const [cards, setCards] = useState([]);
-  const [flippedCards, setFlippedCards] = useState([]);
-  const [matchedCards, setMatchedCards] = useState([]);
+import { useEffect, useState } from "react";
+import Board from '../components/Memory/Board/Board';
+const emojiList = [...'❤️⚽🥅💩🎱🛒🎮🍕'];
 
-  useEffect(() => {
-    const symbols = ['🌸', '🍉', '🌺', '🍕', '🌞', '🎉'];
-    const newCards = [...symbols, ...symbols].sort(() => 0.5 - Math.random());
-    setCards(newCards);
+const Memory = () => {
+  const [shuffledMemoBlocks, setShuffledMemoBlocks] = useState([]);
+  const [selectedMemoBlock, setselectedMemoBlock] = useState(null); //Bloque seleccionado cuando se hace click
+  const [animating, setAnimating] = useState(false);
+
+
+  useEffect(  () => {
+    const shuffledEmojiList = shuffleArray([...emojiList, ...emojiList]);
+    setShuffledMemoBlocks(shuffledEmojiList.map( (emoji, i) => ({ index: i, emoji, flipped: false}) ));
+
   }, []);
 
-  const flipCard = (index) => {
-    if (matchedCards.includes(index)) {
-      return;
+  const shuffleArray = a => {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
     }
+    return a;
 
-    if (flippedCards.length < 2) {
-      setFlippedCards((prevFlippedCards) => [...prevFlippedCards, index]);
-    }
+  }
 
-    if (flippedCards.length === 1) {
-      const card1Index = flippedCards[0];
-      const card2Index = index;
-      if (cards[card1Index] === cards[card2Index]) {
-        setMatchedCards((prevMatchedCards) => [...prevMatchedCards, card1Index, card2Index]);
-      }
-
+  const handleMemoClick = memoBlock => {
+    const flippedMemoBlock = { ...memoBlock, flipped: true }; 
+    let shuffledMemoBlocksCopy = [...shuffledMemoBlocks];
+    shuffledMemoBlocksCopy.splice(memoBlock.index, 1, flippedMemoBlock);
+    setShuffledMemoBlocks(shuffledMemoBlocksCopy);
+    if(selectedMemoBlock === null) {
+      setselectedMemoBlock(memoBlock);
+    } else if(selectedMemoBlock.emoji === memoBlock.emoji) {
+      setselectedMemoBlock(null);
+    } else {
+      setAnimating(true);
       setTimeout(() => {
-        setFlippedCards([]);
+        shuffledMemoBlocksCopy.splice(memoBlock.index, 1, memoBlock);
+        shuffledMemoBlocksCopy.splice(selectedMemoBlock.index, 1, selectedMemoBlock);
+        setShuffledMemoBlocks(shuffledMemoBlocksCopy);
+        setselectedMemoBlock(null);
+        setAnimating(false);
       }, 1000);
     }
-  };
-
-  const resetGame = () => {
-    setCards([]);
-    setFlippedCards([]);
-    setMatchedCards([]);
-  };
+  }
 
   return (
-    <div>
-      <h1>Memorama</h1>
-      {matchedCards.length === cards.length && <h2>¡Felicidades! Has encontrado todas las parejas.</h2>}
-      <div className="cards">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className={`card ${flippedCards.includes(index) ? 'flipped' : ''} ${matchedCards.includes(index) ? 'matched' : ''}`}
-            onClick={() => flipCard(index)}
-          >
-            <div className="card-inner">
-              <div className="card-front">?</div>
-              <div className="card-back">{card}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <button onClick={resetGame}>Reiniciar juego</button>
-    </div>
+    <Board memoBlocks={shuffledMemoBlocks} animating={animating}  handleMemoClick={handleMemoClick} />
   );
-};
-
-export default Memorama;
+}
+export default Memory;
