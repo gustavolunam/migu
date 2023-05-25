@@ -7,7 +7,28 @@
     color: white;
     text-align: center;
 }
+.search{
+    border: none;
+    background: transparent;
+    width: 300px;
+    padding: 10px;
+    font-size: 14px;
+    color: inherit;
+    border: 0;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+  
+.search::placeholder {
+    color: #bbb;
+}
 
+.search:focus {
+  box-shadow: 0 0 3px 0 #1183d6;
+  border-color: #1183d6;
+  outline: none;
+}
 .shoppingListHeader h1 {
     margin: 20px auto;
     font-size: 35px;

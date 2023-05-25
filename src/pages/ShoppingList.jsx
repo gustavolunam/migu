@@ -7,9 +7,12 @@ import List from '../components/List';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import '../styles/ShoppingList.css'
+import { useState } from 'react';
+
 function ShoppingList() {
     const [prodSel, areprodSelLoading, error] = listaCompras();
     const { removeFromCart } = useContext(CartContext);
+    const [query, setQuery] = useState("")
 
     return (
         <>
@@ -25,7 +28,8 @@ function ShoppingList() {
                 </Link>
             </div>
             <div className='shoppingListContent'>
-                <List items={prodSel} icon={<DeleteIcon className='deleteIcon' fontSize='large' />} action={removeFromCart} alert={"Producto eliminado exitosamente!"} />
+            <input className='search 'placeholder="Nombre Producto" onChange={event => setQuery(event.target.value)} />
+                <List items={prodSel} query = {query} icon={<DeleteIcon className='deleteIcon' fontSize='large' />} action={removeFromCart} alert={"Producto eliminado exitosamente!"} />
             </div>
         </>
     )

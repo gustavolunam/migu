@@ -27,7 +27,7 @@ function Products() {
               <h1>Agrega un Producto</h1>
             </div>
             <div className='productsContent'>
-            <input placeholder="Enter Post Title" onChange={event => setQuery(event.target.value)} />
+            <input className="search" placeholder="Nombre Producto" onChange={event => setQuery(event.target.value)} />
               <List items={products} query = {query} icon={<AddCircleIcon className='addIcon' fontSize='large' />} action={addToCart} alert={"Producto agregado exitosamente!"}/>
             </div>
           </div>
