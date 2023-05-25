@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Cupons.css";
 //import { cuponsData } from "../data/cuponsData"
-import Listcupons from "../components/Cupones"
+import Listcupons from "../components/CuponList"
 import { useCupons } from "../hooks/useCupons"
 
 
@@ -16,6 +16,7 @@ function Cupons() {
       <div className = "cuponsContent">
          <Listcupons items={cupons}  /> 
       </div>
+      <div className="cuponFooter" />
     </>
   );
 }

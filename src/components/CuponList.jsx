@@ -1,4 +1,4 @@
-import '../styles/useCuponsDisplay.css'
+import '../styles/CuponList.css'
 import Popup from './Popup.jsx';
 import { useState,useContext } from 'react';
 import { CuponContext } from '../context/CuponContext';
@@ -19,7 +19,6 @@ const Listcupons = ({ items }) => {
         setFechaExp(item.fechaExp);
         setShowPopUp(true);
         setCuponId(item.id);
-        console.log(item.id)
     }
     return (
         <>
@@ -43,7 +42,6 @@ const Listcupons = ({ items }) => {
                     </button>
                 </div>
             </Popup >
-            <div className="cuponFooter" />
         </>
     )
 }

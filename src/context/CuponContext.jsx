@@ -14,11 +14,11 @@ export const CuponContextProvider = (props) => {
                 const uid = user.uid;
                 const tasksRef = ref(db, `Usuarios/${uid}/ListaCupones/${id}/`);
                 remove(tasksRef).then(() => {
-                    console.log(id);
                     console.log("Producto eliminado");
                 });
             }
         });
+        window.location.reload(false);
     }
 
     const contextValue = {
