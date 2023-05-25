@@ -1,3 +1,26 @@
+input{
+    border: none;
+    background: transparent;
+    width: 300px;
+    padding: 10px;
+    font-size: 14px;
+    color: inherit;
+    border: 0;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+  
+input::placeholder {
+    color: #bbb;
+}
+
+input:focus {
+  box-shadow: 0 0 3px 0 #1183d6;
+  border-color: #1183d6;
+  outline: none;
+}
+
 .productsHeader {
     display: flex;
     height: 80px;
