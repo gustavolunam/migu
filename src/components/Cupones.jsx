@@ -1,6 +1,7 @@
 import '../styles/useCuponsDisplay.css'
 import Popup from './Popup.jsx';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
+import { CuponContext } from '../context/CuponContext';
 
 const Listcupons = ({ items }) => {
 
@@ -8,12 +9,17 @@ const Listcupons = ({ items }) => {
     const [nombre, setNombre] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const [fechaExp, setFechaExp] = useState("");
+    const [cuponId, setCuponId] = useState(0);
+
+    const { removeFromCupons } = useContext(CuponContext);
 
     const show = (item) => {
         setNombre(item.nombre);
         setDescripcion(item.descripcion);
         setFechaExp(item.fechaExp);
         setShowPopUp(true);
+        setCuponId(item.id);
+        console.log(item.id)
     }
     return (
         <>
@@ -32,7 +38,7 @@ const Listcupons = ({ items }) => {
                     <h1>{nombre}</h1>
                     <p>{descripcion}</p>
                     <h2>Expira: {fechaExp}</h2>
-                    <button class="popUpbtn">
+                    <button className="popUpbtn" onClick = {() => {removeFromCupons(cuponId); setShowPopUp(false);}}>
                         <h3>USAR</h3>
                     </button>
                 </div>

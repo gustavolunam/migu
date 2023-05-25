@@ -24,7 +24,7 @@ const useCupons = () => {
               const id=childSnapshot.key;
               const{aplicado, descripcion, fechaExp, fechaIni, nombre} =childSnapshot.val();
               fetchedCupons.push({
-                aplicado, descripcion, fechaExp, fechaIni, nombre
+                id, aplicado, descripcion, fechaExp, fechaIni, nombre
               });
           });
     

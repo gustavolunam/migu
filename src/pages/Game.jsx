@@ -13,7 +13,7 @@ function Game() {
       }
     
     const getCupon = () => {
-        let random = getRandomNum(0,10);
+        let random = getRandomNum(1,10);
         console.log(random);
         const db=getDatabase();
         const dbRef = ref(db, `Cupones/${random}`);
