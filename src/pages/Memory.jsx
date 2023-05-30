@@ -1,3 +1,4 @@
+import { Link} from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { auth } from "../apis/firebaseConfig"
@@ -70,7 +71,7 @@ const Memory = () => {
             const desc=snapshot.child("descripcion").val();
             const fechaExp=snapshot.child("fechaExp").val();
             const fechaIni=snapshot.child("fechaIni").val();
-            const aplicado=snapshot.child("aplicado").val();
+            const codigo=snapshot.child("codigo").val();
             
             onAuthStateChanged(auth, (user) => {
                 if (user) {
@@ -81,7 +82,7 @@ const Memory = () => {
                         descripcion: desc,
                         fechaExp: fechaExp,
                         fechaIni: fechaIni,
-                        aplicado: aplicado
+                        codigo: codigo
                     });
                 }
             });
@@ -95,7 +96,9 @@ const Memory = () => {
       {gameWon && (
         <div className="popup">
           <h2>FELICIDADES</h2>
-          <button type="button" onClick={getCupon}>Click Me</button>
+          <Link to = "/home">
+            <button type="button" onClick={getCupon}>Click Me</button>
+          </Link>
         </div>
       )}
     </>

@@ -61,6 +61,10 @@ const App = () => {
                   <ProtectedRoute>
                     <Map />
                   </ProtectedRoute>} />
+                <Route path="/memory" exact element={
+                  <ProtectedRoute>
+                    <Memory />
+                  </ProtectedRoute>} />
               </Route>
             </Routes>
           </CuponContextProvider>
