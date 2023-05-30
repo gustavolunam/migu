@@ -12,7 +12,7 @@
 }
   
 .search::placeholder {
-    color: #bbb;
+    color: black;
 }
 
 .search:focus {
