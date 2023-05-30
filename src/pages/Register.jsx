@@ -15,7 +15,7 @@ import { onAuthStateChanged } from "firebase/auth";
 function Register() {
     const navigate = useNavigate();
     const db = getDatabase();
-    const dbRef = ref(db, 'Usuarios');
+    //const dbRef = ref(db, 'Usuarios');
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -81,17 +81,38 @@ function Register() {
                     <div className="auth-form-content">
                         <div className="input-field">
                             <p className="auth-label">Nombre Completo</p>
-                            <input onChange={(e) => setName(e.target.value)} type="name" placeholder="John Doe" id="name" name="name" />
+                            <input 
+                                onChange={(e) => setName(e.target.value)} 
+                                onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault()}}
+                                type="name" 
+                                placeholder="John Doe" 
+                                id="name" 
+                                name="name" 
+                            />
                         </div>
                         <div className="input-field">
                             <p className="auth-label">Correo Electrónico</p>
-                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="ejemplo@email.com" id="email" name="email" />
+                            <input 
+                                onChange={(e) => setEmail(e.target.value)} 
+                                onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault()}}
+                                type="email" 
+                                placeholder="ejemplo@email.com" 
+                                id="email" 
+                                name="email" 
+                            />
                         </div>
                         <div className="input-field">
                             <p className="auth-label">Contraseña</p>
                             <p className="auth-description">Mínimo de 6 caracteres</p>
                             <p className="auth-description">Usar minúsculas, mayúsculas y números</p>
-                            <input onChange={(e) => setPass(e.target.value)} type="password" placeholder="******" id="password" name="password" />
+                            <input 
+                                onChange={(e) => setPass(e.target.value)}
+                                onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault()}} 
+                                type="password" 
+                                placeholder="******" 
+                                id="password" 
+                                name="password" 
+                            />
                         </div>
                     </div>
                     <div className="auth-buttons">
