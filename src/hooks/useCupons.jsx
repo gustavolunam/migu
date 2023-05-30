@@ -22,9 +22,9 @@ const useCupons = () => {
             onValue(dbRef1, (snapshot) => {
               snapshot.forEach(childSnapshot=>{
               const id=childSnapshot.key;
-              const{aplicado, descripcion, fechaExp, fechaIni, nombre} =childSnapshot.val();
+              const{codigo, descripcion, fechaExp, fechaIni, nombre} =childSnapshot.val();
               fetchedCupons.push({
-                id, aplicado, descripcion, fechaExp, fechaIni, nombre
+                id, codigo, descripcion, fechaExp, fechaIni, nombre
               });
           });
     
