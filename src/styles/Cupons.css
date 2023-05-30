@@ -1,0 +1,30 @@
+.cuponsHeader {
+  height: 80px;
+  width: 100vw;
+  position: fixed;
+  top: 0px;
+  background-image: linear-gradient(45deg, #fd4747, #ff6767);
+  color: white;
+  text-align: center;
+}
+
+.cuponsHeader h1 {
+  margin: 20px auto;
+  font-size: 35px;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  background: #fff;
+}
+
+.cuponsContent {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cuponFooter {
+  height: 80px;
+}

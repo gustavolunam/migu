@@ -51,7 +51,7 @@ function Log() {
       setTimeout(() => {
         loginAttempts = 5;
         console.log(loginAttempts);
-      },10000)
+      }, 10000)
     }
     else if (!validEmail.test(email)) {
       var errorDescription = formatError('auth/invalid-email');
@@ -74,7 +74,7 @@ function Log() {
   return (
     <div className="auth-body">
       <div className="auth-form">
-        <form onSubmit={(handleSubmit)}>
+        <form id="login-form" onSubmit={handleSubmit}>
           <h1>Log In</h1>
           {errorMessage && (
             <p className="error"> {errorMessage} </p>
@@ -82,18 +82,35 @@ function Log() {
           <div className="auth-form-content">
             <div className="input-field">
               <p className="auth-label">Correo Electrónico</p>
-              <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="ejemplo@email.com" id="email" name="email" />
+              <input 
+                tabindex="1" 
+                onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault()}} 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                type="email" 
+                placeholder="ejemplo@email.com" 
+                id="email" 
+                name="email"
+              />
             </div>
             <div className="input-field">
               <p className="auth-label">Contraseña</p>
-              <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+              <input 
+                tabindex="2" 
+                onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault()}} 
+                value={pass} onChange={(e) => setPass(e.target.value)} 
+                type="password" 
+                placeholder="********" 
+                id="password" 
+                name="password" 
+              />
             </div>
           </div>
           <div className="auth-buttons">
             <Link to="/register">
-              <button>Registrate aquí</button>
+              <button tabindex="4">Registrate aquí</button>
             </Link>
-            <button onClick={validate}>Iniciar sesión</button>
+            <button tabindex="3" onClick={validate}>Iniciar sesión</button>
           </div>
         </form>
       </div>

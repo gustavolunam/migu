@@ -1,0 +1,42 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupInner {
+    position: relative;
+    padding: 5px;
+    width: 80%;
+    max-width: 640px;
+    background-color: #fd4747;
+    overflow-wrap: break-word;
+    border-radius: 20px;
+}
+.popup h1{
+    margin:0;
+    border-bottom: 1px solid lightgray;
+}
+.popupInner .closeButton{
+    position: absolute;
+    top: -20px;
+    right: -17px;
+    cursor: pointer;
+    background-color: #fd4747;
+    color: white;
+    padding: 10px;
+    font-size: 22px;
+    content: center;
+    border-radius: 10px;
+}
+.popup img{
+    height:5px;
+    width: 5px;
+}

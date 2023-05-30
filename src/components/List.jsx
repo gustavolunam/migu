@@ -1,24 +1,39 @@
-import { useLocation } from 'react-router-dom';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { useState, forwardRef } from 'react';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 import '../styles/List.css'
-import { Add } from '@mui/icons-material';
 
-const List = ({ items }) => {
-  const currentRoute = useLocation();
+const Alert = forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
+});
 
-  function setIcon() {
-    if (currentRoute.pathname == "/shopping-list") {
-      return <DeleteIcon className='deleteIcon' fontSize='large' />
-    } else {
-      return <AddCircleIcon className='addIcon' fontSize='large' />
-    }
+const List = ({ items, query, icon, action, alert }) => {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
   }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   return (
     <>
-      {items.map(item => (
-        <div key={item.name} className='product'>
+      {
+      items.filter(item => {
+        if( query === ''){
+          return item.nombre;
+        }else if(item.nombre.toLowerCase().includes(query.toLowerCase())){
+          return item.nombre;
+        }
+      })
+      .map((item, index) => (
+        <div className='product' key={index}>
           <div className='productContainer'>
             <div className='productImage'>
               <img src={item.imagen} />
@@ -29,11 +44,17 @@ const List = ({ items }) => {
               </p>
               <p className="productPrice">${item.precio}</p>
             </div>
-            <button>{setIcon()}</button>
-            {/*<button className='productCheckmark'> <CheckBox /> </button>*/}
+            <button onClick={() => {handleClick(); action(item)}}>{icon}</button>
           </div>
         </div >
       ))}
+      <div>
+        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+          <Alert className='productAlert' onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+            {alert}
+          </Alert>
+        </Snackbar>
+      </div>
       <div className='productFooter' />
     </>
   )
