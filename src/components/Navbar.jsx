@@ -3,6 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MapIcon from '@mui/icons-material/Map';
 import ViewInArIcon from '@mui/icons-material/ViewInAr';
 import '../styles/Navbar.css'
 
@@ -36,6 +37,12 @@ function Navbar() {
             <Link to="https://cheerful-fenglisu-41a334.netlify.app/9.prueba.html">
                 <button>
                     <ViewInArIcon className='icon' fontSize="large" />
+                    <p> AR </p>
+                </button>
+            </Link>
+            <Link to="https://glunam.itch.io/migu-unity-test">
+                <button>
+                    <MapIcon className='icon' fontSize="large" />
                     <p>Mapa</p>
                 </button>
             </Link>
