@@ -95,9 +95,9 @@ const Memory = () => {
       <Board memoBlocks={shuffledMemoBlocks} animating={animating} handleMemoClick={handleMemoClick} />
       {gameWon && (
         <div className="popup">
-          <h2>FELICIDADES</h2>
+          <h2 className ="winMsg">FELICIDADES</h2>
           <Link to = "/home">
-            <button type="button" onClick={getCupon}>Click Me</button>
+            <button type="button" onClick={getCupon} className = "returnButton">Regresar</button>
           </Link>
         </div>
       )}
