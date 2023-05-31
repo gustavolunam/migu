@@ -32,39 +32,36 @@ const App = () => {
                 <Route path="/log" exact element={<Log />} />
                 <Route path="/register" exact element={<Register />} />
                 <Route path="/play" exact element={
-                  <ProtectedRoute>
-                    <Game />
-                  </ProtectedRoute>} />
+                    <Game />} />
               </Route>
               <Route element={<WithNav />}>
                 <Route path="/home" exact element={
-                  <ProtectedRoute>
                     <Home />
-                  </ProtectedRoute>} />
+                  } />
                 <Route path="/edit-shopping-list" exact element={
-                  <ProtectedRoute>
+                 
                     <Products />
-                  </ProtectedRoute>} />
+                  } />
                 <Route path="/shopping-list" exact element={
-                  <ProtectedRoute>
+                
                     <ShoppingList />
-                  </ProtectedRoute>} />
+                  } />
                 <Route path="/profile" exact element={
-                  <ProtectedRoute>
+             
                     <Profile />
-                  </ProtectedRoute>} />
+                 } />
                 <Route path="/cupons" exact element={
-                  <ProtectedRoute>
+
                     <Cupons />
-                  </ProtectedRoute>} />
+                 } />
                 <Route path="/map" exact element={
-                  <ProtectedRoute>
+            
                     <Map />
-                  </ProtectedRoute>} />
+                } />
                 <Route path="/memory" exact element={
-                  <ProtectedRoute>
+
                     <Memory />
-                  </ProtectedRoute>} />
+             } />
               </Route>
             </Routes>
           </CuponContextProvider>
