@@ -10,7 +10,6 @@ import '../styles/ShoppingList.css'
 import { useState } from 'react';
 
 function ShoppingList() {
-    const [prodSel, areprodSelLoading, error] = listaCompras();
     const { cart, removeFromCart } = useContext(CartContext);
     const [query, setQuery] = useState("")
 

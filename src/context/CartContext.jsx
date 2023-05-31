@@ -24,11 +24,7 @@ export const CartContextProvider = (props) => {
                         });
                     });
                     setCart(fetchedItems);
-                }, (errorObject) => {
-                    console.log("The read failed" + errorObject.name);
-                    setError(true)
-                }
-                );
+                });
             }
         });
     }
@@ -36,7 +32,6 @@ export const CartContextProvider = (props) => {
     useEffect(() => {
         defaultCart();
     }, []);
-    console.log(cart);
 
     const addToCart = (item) => {
         onAuthStateChanged(auth, (user) => {
@@ -48,6 +43,7 @@ export const CartContextProvider = (props) => {
                     imagen: item.imagen,
                     precio: item.precio
                 });
+                defaultCart();
             }
         });
     }
