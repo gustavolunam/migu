@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 function ShoppingList() {
     const [prodSel, areprodSelLoading, error] = listaCompras();
-    const { removeFromCart } = useContext(CartContext);
+    const { cart, removeFromCart } = useContext(CartContext);
     const [query, setQuery] = useState("")
 
     return (
@@ -29,7 +29,7 @@ function ShoppingList() {
             </div>
             <div className='shoppingListContent'>
             <input className='search 'placeholder="Nombre Producto" onChange={event => setQuery(event.target.value)} />
-                <List items={prodSel} query = {query} icon={<DeleteIcon className='deleteIcon' fontSize='large' />} action={removeFromCart} alert={"Producto eliminado exitosamente!"} />
+                <List items={cart} query = {query} icon={<DeleteIcon className='deleteIcon' fontSize='large' />} action={removeFromCart} alert={"Producto eliminado exitosamente!"} />
             </div>
         </>
     )

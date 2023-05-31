@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import { getDatabase, ref, push, set, remove } from "firebase/database";
+import { createContext, useState, useEffect } from "react";
+import { getDatabase, ref, push, set, remove, onValue } from "firebase/database";
 import { auth } from "../apis/firebaseConfig"
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -7,6 +7,36 @@ export const CartContext = createContext([]);
 
 export const CartContextProvider = (props) => {
     const db = getDatabase();
+    const [cart, setCart] = useState([]);
+
+    const defaultCart = () => {
+        let fetchedItems = [];
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+                const dbRef1 = ref(db, `Usuarios/${uid}/ListaProductos/`);
+                onValue(dbRef1, (snapshot) => {
+                    snapshot.forEach(childSnapshot => {
+                        const id = childSnapshot.key;
+                        const { imagen, nombre, precio } = childSnapshot.val();
+                        fetchedItems.push({
+                            id, imagen, nombre, precio
+                        });
+                    });
+                    setCart(fetchedItems);
+                }, (errorObject) => {
+                    console.log("The read failed" + errorObject.name);
+                    setError(true)
+                }
+                );
+            }
+        });
+    }
+
+    useEffect(() => {
+        defaultCart();
+    }, []);
+    console.log(cart);
 
     const addToCart = (item) => {
         onAuthStateChanged(auth, (user) => {
@@ -23,6 +53,7 @@ export const CartContextProvider = (props) => {
     }
 
     const removeFromCart = (item) => {
+        console.log(item);
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 const uid = user.uid;
@@ -30,12 +61,13 @@ export const CartContextProvider = (props) => {
                 remove(tasksRef).then(() => {
                     console.log("Producto eliminado");
                 });
+                defaultCart();
             }
         });
-        window.location.reload(false);
     }
 
     const contextValue = {
+        cart,
         addToCart,
         removeFromCart
     };
