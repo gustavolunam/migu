@@ -23,7 +23,7 @@ const Listcupons = ({ items }) => {
         setFechaExp(item.fechaExp);
         setShowPopUp(true);
         setCuponId(item.id);
-        setCodigo("12345");
+        setCodigo(item.codigo);
     }
 
     return (

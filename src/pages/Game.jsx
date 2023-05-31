@@ -25,7 +25,7 @@ function Game() {
                 const desc=snapshot.child("descripcion").val();
                 const fechaExp=snapshot.child("fechaExp").val();
                 const fechaIni=snapshot.child("fechaIni").val();
-                const aplicado=snapshot.child("aplicado").val();
+                const codigo=snapshot.child("codigo").val();
                 
                 onAuthStateChanged(auth, (user) => {
                     if (user) {
@@ -36,7 +36,7 @@ function Game() {
                             descripcion: desc,
                             fechaExp: fechaExp,
                             fechaIni: fechaIni,
-                            aplicado: aplicado
+                            codigo: codigo
                         });
                     }
                 });
