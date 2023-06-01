@@ -13,7 +13,7 @@ const Memory = () => {
   const [animating, setAnimating] = useState(false);
   const [gameWon, setGameWon] = useState(false);
   const [products, setCupons] = useState([]);
-  const { addToCart } = useContext(CuponContext);
+  const { addToCupon } = useContext(CuponContext);
 
   useEffect( () => {
     const shuffledEmojiList = shuffleArray([...emojiList, ...emojiList]);
@@ -99,7 +99,7 @@ const Memory = () => {
         <div className="popup">
           <h2 className ="winMsg">FELICIDADES</h2>
           <Link to = "/home">
-            <button type="button" onClick={addToCart()} className = "returnButton">Regresar</button>
+            <button type="button" onClick={addToCupon()} className = "returnButton">Regresar</button>
           </Link>
         </div>
       )}

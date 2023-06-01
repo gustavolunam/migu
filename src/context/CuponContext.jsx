@@ -33,7 +33,7 @@ export const CuponContextProvider = (props) => {
         defaultCart();
     }, []);
 
-    const addToCart = () => {
+    const addToCupon = () => {
         let random = getRandomNum(1, 10);
         console.log(random);
         const db = getDatabase();
@@ -81,7 +81,7 @@ export const CuponContextProvider = (props) => {
 
     const contextValue = {
         cart,
-        addToCart,
+        addToCupon,
         removeFromCupons
     };
 
