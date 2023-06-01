@@ -1,8 +1,9 @@
 import { Link} from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { auth } from "../apis/firebaseConfig"
 import { onAuthStateChanged } from "firebase/auth";
+import { CuponContext } from "../context/CuponContext";
 import Board from '../components/Memory/Board/Board';
 const emojiList = [...'🍕🎮🎱💩⚽🥅'];
 
@@ -12,6 +13,7 @@ const Memory = () => {
   const [animating, setAnimating] = useState(false);
   const [gameWon, setGameWon] = useState(false);
   const [products, setCupons] = useState([]);
+  const { addToCart } = useContext(CuponContext);
 
   useEffect( () => {
     const shuffledEmojiList = shuffleArray([...emojiList, ...emojiList]);
@@ -97,7 +99,7 @@ const Memory = () => {
         <div className="popup">
           <h2 className ="winMsg">FELICIDADES</h2>
           <Link to = "/home">
-            <button type="button" onClick={getCupon} className = "returnButton">Regresar</button>
+            <button type="button" onClick={addToCart()} className = "returnButton">Regresar</button>
           </Link>
         </div>
       )}

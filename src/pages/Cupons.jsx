@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { useContext } from "react";
 import "../styles/Cupons.css";
-//import { cuponsData } from "../data/cuponsData"
+import { CuponContext } from "../context/CuponContext";
 import Listcupons from "../components/CuponList"
 import { useCupons } from "../hooks/useCupons"
 
 
 function Cupons() {
-  const [cupons, CuponsLoading, error] = useCupons();
+  const { cart } = useContext(CuponContext);
 
   return (
     <>
-      <div className = "cuponsHeader">
+      <div className="cuponsHeader">
         <h1>Cupones</h1>
       </div>
-      <div className = "cuponsContent">
-         <Listcupons items={cupons}  /> 
+      <div className="cuponsContent">
+        <Listcupons items={cart} />
       </div>
       <div className="cuponFooter" />
     </>
