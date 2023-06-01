@@ -48,7 +48,7 @@ const List = ({ items, query, icon, action, alert }) => {
           </div>
         </div >
       ))}
-      <div>
+      <div className='alert'>
         <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
           <Alert className='productAlert' onClose={handleClose} severity="success" sx={{ width: '100%' }}>
             {alert}
