@@ -11,7 +11,6 @@ import Products from "./pages/Products";
 import Profile from "./pages/Profile";
 import Cupons from "./pages/Cupons";
 import Map from "./pages/Map";
-import Game from "./pages/Game";
 import Memory from "./pages/Memory"
 
 import { Route, Routes } from "react-router-dom";
@@ -31,10 +30,6 @@ const App = () => {
                 <Route path="/" exact element={<Start />} />
                 <Route path="/log" exact element={<Log />} />
                 <Route path="/register" exact element={<Register />} />
-                <Route path="/play" exact element={
-                  <ProtectedRoute>
-                    <Game />
-                  </ProtectedRoute>} />
               </Route>
               <Route element={<WithNav />}>
                 <Route path="/home" exact element={

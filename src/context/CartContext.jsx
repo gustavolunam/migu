@@ -49,7 +49,6 @@ export const CartContextProvider = (props) => {
     }
 
     const removeFromCart = (item) => {
-        console.log(item);
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 const uid = user.uid;

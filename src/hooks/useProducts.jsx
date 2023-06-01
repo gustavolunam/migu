@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
 import Axios from "axios";
 
 const useProducts = () => {

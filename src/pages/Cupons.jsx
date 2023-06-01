@@ -2,8 +2,6 @@ import { useContext } from "react";
 import "../styles/Cupons.css";
 import { CuponContext } from "../context/CuponContext";
 import Listcupons from "../components/CuponList"
-import { useCupons } from "../hooks/useCupons"
-
 
 function Cupons() {
   const { cart } = useContext(CuponContext);

@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom'
 import Fab from '@mui/material/Fab';
 import { CartContext } from '../context/CartContext';
-import { listaCompras } from '../hooks/listaCompras';
 import List from '../components/List';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';

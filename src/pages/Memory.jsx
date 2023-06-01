@@ -54,44 +54,6 @@ const Memory = () => {
     }
   }
 
-  const getRandomNum = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-  }
-
-  const getCupon = () => {
-    let random = getRandomNum(1,10);
-    console.log(random);
-    const db=getDatabase();
-    const dbRef = ref(db, `Cupones/${random}`);
-    //let fetCupons=[];
-
-    onValue(dbRef, (snapshot) => {
-        snapshot.forEach((childSnapshot) => {
-            const nombre=snapshot.child("nombre").val();
-            const desc=snapshot.child("descripcion").val();
-            const fechaExp=snapshot.child("fechaExp").val();
-            const fechaIni=snapshot.child("fechaIni").val();
-            const codigo=snapshot.child("codigo").val();
-            
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    const uid = user.uid;
-                    const dbRef1 = ref(db,`Usuarios/${uid}/ListaCupones/${random}`);
-                    set(dbRef1,{
-                        nombre: nombre,
-                        descripcion: desc,
-                        fechaExp: fechaExp,
-                        fechaIni: fechaIni,
-                        codigo: codigo
-                    });
-                }
-            });
-        });
-      });
-}
-
   return (
     <>
       <Board memoBlocks={shuffledMemoBlocks} animating={animating} handleMemoClick={handleMemoClick} />
@@ -99,7 +61,7 @@ const Memory = () => {
         <div className="popup">
           <h2 className ="winMsg">FELICIDADES</h2>
           <Link to = "/home">
-            <button type="button" onClick={addToCupon()} className = "returnButton">Regresar</button>
+            <button type="button" onClick={addToCupon} className = "returnButton">Regresar</button>
           </Link>
         </div>
       )}

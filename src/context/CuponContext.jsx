@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import { getDatabase, ref, remove, onValue } from "firebase/database";
+import { getDatabase, ref, remove, onValue, set } from "firebase/database";
 import { auth } from "../apis/firebaseConfig"
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -33,12 +33,16 @@ export const CuponContextProvider = (props) => {
         defaultCart();
     }, []);
 
+    const getRandomNum = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+    }
+    
     const addToCupon = () => {
         let random = getRandomNum(1, 10);
-        console.log(random);
         const db = getDatabase();
         const dbRef = ref(db, `Cupones/${random}`);
-        //let fetCupons=[];
 
         onValue(dbRef, (snapshot) => {
             snapshot.forEach((childSnapshot) => {
@@ -72,7 +76,7 @@ export const CuponContextProvider = (props) => {
                 const uid = user.uid;
                 const tasksRef = ref(db, `Usuarios/${uid}/ListaCupones/${id}/`);
                 remove(tasksRef).then(() => {
-                    console.log("Producto eliminado");
+                    console.log("Cupon eliminado");
                 });
                 defaultCart();
             }
