@@ -11,7 +11,8 @@ import Products from "./pages/Products";
 import Profile from "./pages/Profile";
 import Cupons from "./pages/Cupons";
 import Map from "./pages/Map";
-import Memory from "./pages/Memory"
+import Memory from "./pages/Memory";
+import BirdGame from "./pages/BirdGame";
 
 import { Route, Routes } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
@@ -59,6 +60,10 @@ const App = () => {
                 <Route path="/memory" exact element={
                   <ProtectedRoute>
                     <Memory />
+                  </ProtectedRoute>} />
+                  <Route path="/birdgame" exact element={
+                  <ProtectedRoute>
+                    <BirdGame />
                   </ProtectedRoute>} />
               </Route>
             </Routes>
