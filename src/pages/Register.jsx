@@ -33,7 +33,6 @@ function Register() {
         createUserWithEmailAndPassword(auth, email, pass)
             .then(auth => {
                 navigate('/home');
-                alert("REGISTRO EXITOSO");
             })
             .catch((error) => {
                 var errorDescription = formatError(error.code);

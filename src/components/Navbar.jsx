@@ -34,12 +34,6 @@ function Navbar() {
                     <p>Cupones</p>
                 </button>
             </Link>
-            <Link to="https://cheerful-fenglisu-41a334.netlify.app/9.prueba.html">
-                <button>
-                    <ViewInArIcon className='icon' fontSize="large" />
-                    <p> AR </p>
-                </button>
-            </Link>
             <Link to="https://glunam.itch.io/migu-unity-test">
                 <button>
                     <MapIcon className='icon' fontSize="large" />

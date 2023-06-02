@@ -34,7 +34,6 @@ function Log() {
     signInWithEmailAndPassword(auth, email, pass)
       .then(auth => {
         navigate('/home')
-        alert("INICIO SESION EXITOSO");
       })
       .catch((error) => {
         var errorDescription = formatError(error.code);
