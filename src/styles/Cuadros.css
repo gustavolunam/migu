@@ -1,0 +1,41 @@
+.cuadrosHeader {
+    height: 100px;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    color: green;
+    text-align: center;
+  }
+  
+.cuadrosHeader h1 {
+    margin: 20px auto;
+    font-size: 35px;
+}
+
+.redSqr{
+    aspect-ratio: 1 / 1;
+    background-color: red;
+    border-radius: 10px;
+}
+.blueSqr{
+    aspect-ratio: 1 / 1;
+    background-color: blue;
+    border-radius: 10px;
+}
+.greenSqr{
+    aspect-ratio: 1 / 1;
+    background-color: green;
+    border-radius: 10px;
+}
+.yellowSqr{
+    aspect-ratio: 1 / 1;
+    background-color: yellow;
+    border-radius: 10px;
+}
+.cuadrosContent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    max-width: 90vw;
+    margin: 175px auto;
+}
