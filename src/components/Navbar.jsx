@@ -4,7 +4,6 @@ import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MapIcon from '@mui/icons-material/Map';
-import ViewInArIcon from '@mui/icons-material/ViewInAr';
 import '../styles/Navbar.css'
 
 function Navbar() {
