@@ -34,7 +34,7 @@ function Navbar() {
                     <p>Cupones</p>
                 </button>
             </Link>
-            <Link to="https://glunam.itch.io/migu-unity-test">
+            <Link to="https://glunam.itch.io/mapa-migu">
                 <button>
                     <MapIcon className='icon' fontSize="large" />
                     <p>Mapa</p>
