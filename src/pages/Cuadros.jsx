@@ -15,7 +15,7 @@ function Cuadros() {
   return (
     <>
       <div className="cuadrosHeader">
-        <h1>Selecciona los cuadros verdes</h1>
+        <h1>Selecciona un cuadro verde</h1>
       </div>
       <div className="cuadrosContent">
         <MC />

@@ -60,7 +60,7 @@ const Memory = () => {
       {gameWon && (
         <div className="popup">
           <h2 className ="winMsg">FELICIDADES</h2>
-          <Link to = "/home">
+          <Link to = "/cupons">
             <button type="button" onClick={addToCupon} className = "returnButton">Regresar</button>
           </Link>
         </div>
