@@ -12,7 +12,7 @@ const OBSTACLE_GAP = 200;
 function BirdGame(){
 
     const [birdPosition, setBirdPosition] = useState(250);
-    const [gameHasStarted, setGameHasStarted] = useState(false);
+    const [gameHasStarted, setGameHasStarted] = useState(false);    
     const [obstacleHeight, setObstacleHeight] = useState(200);
     const [obstacleLeft, setObstacleLeft] = useState(GAME_WIDTH - OBSTACLE_WIDTH);
 
