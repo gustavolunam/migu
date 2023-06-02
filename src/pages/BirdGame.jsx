@@ -16,6 +16,7 @@ function BirdGame(){
     const [obstacleHeight, setObstacleHeight] = useState(200);
     const [obstacleLeft, setObstacleLeft] = useState(GAME_WIDTH - OBSTACLE_WIDTH);
     const [score, setScore] = useState(0);
+    const [gameWon, setGameWon] = useState(false);
 
     const bottomObstacleHeight = GAME_HEIGHT - OBSTACLE_GAP - obstacleHeight;
 
@@ -67,6 +68,7 @@ function BirdGame(){
         if(!gameHasStarted){
             setGameHasStarted(true);
             setScore(score => 0);
+            setGameWon(false);
         }
         else if(newBirdPosition < 0){
             setBirdPosition(0);
@@ -75,8 +77,24 @@ function BirdGame(){
         }
     };
 
+    /*
+    useEffect(() => {
+
+        if(score >= 3){
+            setGameWon(true);           
+        }
+
+        if(gameWon){
+            alert("¡Ganaste!");
+            setGameHasStarted(false);
+        }
+
+    }, [score]);
+    */
+
     return(
         <Div onClick={handleClick}>
+            {/*<span> ¡Llega a 5 puntos para ganar! </span>*/}
             <GameBox height={GAME_HEIGHT} width={GAME_WIDTH}>
                 <Obstacle 
                     top={0}
@@ -91,8 +109,13 @@ function BirdGame(){
                 <Bird size = {BIRD_SIZE} top = {birdPosition}/>
             </GameBox>
             <span>{score}</span>
+            
+            
         </Div>
+
     );
+
+    
 
     /*
     return (
