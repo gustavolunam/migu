@@ -4,9 +4,6 @@ import { CuponContext } from "../context/CuponContext";
 import MC from "../components/makeSquares";
 
 function Squares() {
-  const [gameWon, setGameWon] = useState(false);
-  const { addToCupon } = useContext(CuponContext);
-  const [allSquares, setAllSquares] = useState([]);
   
   return (
     <>

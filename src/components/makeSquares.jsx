@@ -6,7 +6,6 @@ import '../styles/Squares.css';
 
 const makeCuadros = () => {
   const [active, setActive] = useState(false);
-  const [color, setColor] = useState("greenSqr");
   
   const { addToCupon } = useContext(CuponContext);
 
