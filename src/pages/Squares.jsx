@@ -3,7 +3,7 @@ import '../styles/Cuadros.css';
 import { CuponContext } from "../context/CuponContext";
 import MC from "../components/makeCuadros";
 
-function Cuadros() {
+function Squares() {
 
   const [gameWon, setGameWon] = useState(false);
   const { addToCupon } = useContext(CuponContext);
@@ -24,4 +24,4 @@ function Cuadros() {
   );
 }
 
-export default Cuadros
+export default Squares
