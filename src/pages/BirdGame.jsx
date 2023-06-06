@@ -86,7 +86,7 @@ function BirdGame(){
 
         if(score > 9){
             setGameWon(true);
-            //setScore(score => score);
+            setScore(score => 10);
             setGameHasStarted(false);           
         }
 
@@ -119,7 +119,7 @@ function BirdGame(){
         </div>
       )}
             <span>{score}</span>
-            <h1> {guide} </h1>
+            <h4> {guide} </h4>
             
             
         </Div>
@@ -158,12 +158,13 @@ const Div = styled.div`
         color: black;
         font-size: 24px;
         position: absolute;
+        margin-top: 50px;
     }
-    & h1{
+    & h4{
         color: black;
         font-size: 24px;
         position: absolute;
-        margin-top: 450px;
+        
     }
 `
 
