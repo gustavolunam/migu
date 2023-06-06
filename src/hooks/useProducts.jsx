@@ -6,11 +6,9 @@ const useProducts = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-
   useEffect(() => {
-
     setIsLoading(true);
-    
+
     let fetchedProductos = [];
 
     Axios.get("https://apimigu.vercel.app/")
@@ -29,13 +27,11 @@ const useProducts = () => {
           setProducts(fetchedProductos);
         });
       });
-     setIsLoading(false);
-    
-
-     setError(false);
+    setIsLoading(false);
+    setError(false);
   }, [])
   return [products, isLoading, error]
-  
+
 }
 
 export { useProducts };

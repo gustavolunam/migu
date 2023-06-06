@@ -10,7 +10,6 @@ import ShoppingList from "./pages/ShoppingList";
 import Products from "./pages/Products";
 import Profile from "./pages/Profile";
 import Cupons from "./pages/Cupons";
-import Map from "./pages/Map";
 import Memory from "./pages/Memory";
 import BirdGame from "./pages/BirdGame";
 import Squares from "./pages/Squares";
@@ -53,10 +52,6 @@ const App = () => {
                 <Route path="/cupons" exact element={
                   <ProtectedRoute>
                     <Cupons />
-                  </ProtectedRoute>} />
-                <Route path="/map" exact element={
-                  <ProtectedRoute>
-                    <Map />
                   </ProtectedRoute>} />
                 <Route path="/memory" exact element={
                   <ProtectedRoute>

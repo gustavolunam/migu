@@ -1,11 +1,10 @@
-import '../styles/Squares.css';
 import { useState, useContext } from 'react';
+import { Link} from "react-router-dom";
 import Popup from './Popup.jsx';
 import { CuponContext } from "../context/CuponContext";
-import { Link} from "react-router-dom";
+import '../styles/Squares.css';
 
 const makeCuadros = () => {
-
   const [active, setActive] = useState(false);
   const [color, setColor] = useState("greenSqr");
   

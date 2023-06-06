@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom'
 import { CartContext } from '../context/CartContext';
 import { useProducts } from '../hooks/useProducts';
@@ -6,15 +6,13 @@ import List from '../components/List';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import '../styles/Products.css';
-import { useState } from 'react';
 
 
 function Products() {
-  
   const [query, setQuery] = useState("")
   const { addToCart } = useContext(CartContext);
   const [products, areProductsLoading, error] = useProducts();
-  //console.log(producto);
+
   return (
     <>
       {areProductsLoading ? <p>Loading...</p> : (

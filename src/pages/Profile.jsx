@@ -1,8 +1,9 @@
-import { UserAuth } from "../context/AuthContext"
 import { useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext"
+import '../styles/Profile.css'
 
 function Profile() {
-    const {user, logout} = UserAuth();
+    const { user, userName, logout } = UserAuth();
     const navigate = useNavigate();
 
     const handleLogout = async () => {
@@ -16,12 +17,16 @@ function Profile() {
     }
 
     return (
-        <div>
-            <h1>Account</h1>
-            <p>User Email: {user && user.email} </p>
-
-            <button onClick={handleLogout}>Logout</button>
-        </div>
+        <>
+            <div className='profileHeader'>
+                <h1>Mi Cuenta</h1>
+            </div>
+            <div className='profileContent'>
+                <h2> {userName} </h2>
+                <p> {user.email} </p>
+                <button onClick={handleLogout}>Cerrar sesión</button>
+            </div>
+        </>
     )
 }
 

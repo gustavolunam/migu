@@ -5,38 +5,43 @@
     top: 0px;
     color: green;
     text-align: center;
-  }
-  
+}
+
 .cuadrosHeader h1 {
     margin: 20px auto;
     font-size: 35px;
 }
 
-.redSqr{
+.redSqr {
     aspect-ratio: 1 / 1;
     background-color: red;
     border-radius: 10px;
 }
-.blueSqr{
+
+.blueSqr {
     aspect-ratio: 1 / 1;
     background-color: blue;
     border-radius: 10px;
 }
-.greenSqr{
+
+.greenSqr {
     aspect-ratio: 1 / 1;
     background-color: green;
     border-radius: 10px;
 }
-.yellowSqr{
+
+.yellowSqr {
     aspect-ratio: 1 / 1;
     background-color: yellow;
     border-radius: 10px;
 }
-.whiteSqr{
+
+.whiteSqr {
     aspect-ratio: 1 / 1;
     background-color: white;
     border-radius: 10px;
 }
+
 .cuadrosContent {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

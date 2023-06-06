@@ -1,14 +1,16 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import {
-    signOut, 
+    signOut,
     onAuthStateChanged
-} from 'firebase/auth'
-import { auth } from '../apis/firebaseConfig'
+} from 'firebase/auth';
+import { getDatabase, ref, set, remove, onValue } from "firebase/database";
+import { auth } from '../apis/firebaseConfig';
 
 const UserContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState({})
+    const [userName, setUserName] = useState('')
 
     const logout = () => {
         return signOut(auth);
@@ -16,7 +18,14 @@ export const AuthContextProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            //console.log(currentUser);
+            const db = getDatabase();
+            const uid = currentUser.uid;
+            const dbRef1 = ref(db, `Usuarios/${uid}/`);
+            onValue(dbRef1, (snapshot) => {
+                const id = snapshot.key;
+                const { nombre } = snapshot.val();
+                setUserName(nombre);
+            });
             setUser(currentUser);
         })
         return () => {
@@ -26,8 +35,8 @@ export const AuthContextProvider = ({ children }) => {
 
     return (
         <UserContext.Provider
-            value={{ user, logout }}>
-            { children }
+            value={{ user, userName, logout }}>
+            {children}
         </UserContext.Provider>
     )
 }

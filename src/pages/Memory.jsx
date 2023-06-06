@@ -1,8 +1,5 @@
 import { Link} from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
-import { getDatabase, ref, onValue, set } from "firebase/database";
-import { auth } from "../apis/firebaseConfig"
-import { onAuthStateChanged } from "firebase/auth";
 import { CuponContext } from "../context/CuponContext";
 import Board from "../components/Board";
 const emojiList = [...'🍕🎮🎱💩⚽🥅'];
@@ -12,7 +9,6 @@ const Memory = () => {
   const [selectedMemoBlock, setselectedMemoBlock] = useState(null);
   const [animating, setAnimating] = useState(false);
   const [gameWon, setGameWon] = useState(false);
-  const [products, setCupons] = useState([]);
   const { addToCupon } = useContext(CuponContext);
 
   useEffect( () => {

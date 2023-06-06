@@ -1,30 +1,20 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../apis/firebaseConfig";
 import useFormatError from "../hooks/useFormatError";
 import { validEmail, validPassword } from "../tools/Regex";
 import '../styles/Auth.css'
 
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { getDatabase, ref, set } from "firebase/database";
-import { auth } from "../apis/firebaseConfig";
-
-import { onAuthStateChanged } from "firebase/auth";
-
-
 var loginAttempts = 5;
 
 function Log() {
-
   const navigate = useNavigate();
-  const db = getDatabase();
-  const dbRef = ref(db, 'Usuarios');
+  const formatError = useFormatError();
 
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
-  const formatError = useFormatError();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +28,6 @@ function Log() {
       .catch((error) => {
         var errorDescription = formatError(error.code);
         loginAttempts = loginAttempts - 1;
-        console.log(loginAttempts);
         setErrorMessage(errorDescription);
       });
   }
@@ -49,21 +38,17 @@ function Log() {
       setErrorMessage(errorDescription);
       setTimeout(() => {
         loginAttempts = 5;
-        console.log(loginAttempts);
       }, 10000)
     }
     else if (!validEmail.test(email)) {
       var errorDescription = formatError('auth/invalid-email');
       setErrorMessage(errorDescription);
       loginAttempts = loginAttempts - 1;
-      console.log(loginAttempts);
-
     }
     else if (!validPassword.test(pass)) {
       var errorDescription = formatError('auth/invalid-password');
       setErrorMessage(errorDescription);
       loginAttempts = loginAttempts - 1;
-      console.log(loginAttempts);
     }
     else {
       inicio();

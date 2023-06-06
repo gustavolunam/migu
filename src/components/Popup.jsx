@@ -1,4 +1,3 @@
-import React from 'react'
 import '../styles/PopUp.css';
 
 function Popup(items) {

@@ -1,10 +1,10 @@
-import '../styles/CuponList.css'
-import Popup from './Popup.jsx';
 import { useState,useContext } from 'react';
 import { CuponContext } from '../context/CuponContext';
+import Popup from './Popup.jsx';
+import '../styles/CuponList.css'
+
 
 const Listcupons = ({ items }) => {
-
     const [showPopUp, setShowPopUp] = useState(false);
     const [showPopCode, setShowPopCode] = useState(false);
 

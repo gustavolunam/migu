@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { validEmail,validPassword,validName } from "../tools/Regex";
-import { UserAuth } from "../context/AuthContext";
 import useFormatError from "../hooks/useFormatError";
 import '../styles/Auth.css'
 
@@ -15,7 +14,6 @@ import { onAuthStateChanged } from "firebase/auth";
 function Register() {
     const navigate = useNavigate();
     const db = getDatabase();
-    //const dbRef = ref(db, 'Usuarios');
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -23,7 +21,6 @@ function Register() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const formatError = useFormatError();
-    const { createUser } = UserAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
