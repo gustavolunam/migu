@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CuponContext } from "../context/CuponContext";
+import { Link } from "react-router-dom";
 
 const BIRD_SIZE = 20;
 const GAME_WIDTH = 500;
@@ -17,6 +19,8 @@ function BirdGame(){
     const [obstacleLeft, setObstacleLeft] = useState(GAME_WIDTH - OBSTACLE_WIDTH);
     const [score, setScore] = useState(0);
     const [gameWon, setGameWon] = useState(false);
+    const { addToCupon } = useContext(CuponContext);
+    const guide = "¡Llega a 10 puntos para ganar!";
 
     const bottomObstacleHeight = GAME_HEIGHT - OBSTACLE_GAP - obstacleHeight;
 
@@ -77,24 +81,22 @@ function BirdGame(){
         }
     };
 
-    /*
+    
     useEffect(() => {
 
-        if(score >= 3){
-            setGameWon(true);           
-        }
-
-        if(gameWon){
-            alert("¡Ganaste!");
-            setGameHasStarted(false);
+        if(score > 9){
+            setGameWon(true);
+            //setScore(score => score);
+            setGameHasStarted(false);           
         }
 
     }, [score]);
-    */
+    
 
     return(
+        
         <Div onClick={handleClick}>
-            {/*<span> ¡Llega a 5 puntos para ganar! </span>*/}
+            
             <GameBox height={GAME_HEIGHT} width={GAME_WIDTH}>
                 <Obstacle 
                     top={0}
@@ -108,7 +110,16 @@ function BirdGame(){
                     left={obstacleLeft}/>
                 <Bird size = {BIRD_SIZE} top = {birdPosition}/>
             </GameBox>
+            {gameWon && (
+            <div className="popup">
+            <h2 className ="winMsg">FELICIDADES</h2>
+          <Link to = "/cupons">
+            <button type="button" onClick={addToCupon} className = "returnButton">Regresar</button>
+          </Link>
+        </div>
+      )}
             <span>{score}</span>
+            <h1> {guide} </h1>
             
             
         </Div>
@@ -144,17 +155,24 @@ const Div = styled.div`
     width: 100%;
     justify-content: center;
     & span{
-        color: white;
+        color: black;
         font-size: 24px;
         position: absolute;
+    }
+    & h1{
+        color: black;
+        font-size: 24px;
+        position: absolute;
+        margin-top: 450px;
     }
 `
 
 const GameBox = styled.div`
     height: ${(props) => props.height}px;
     width: ${(props) => props.width}px;
-    background-color: cyan;
+    background-color: white;
     overflow: hidden;
+    border-style: solid;
 `
 
 const Obstacle = styled.div`
@@ -165,3 +183,4 @@ const Obstacle = styled.div`
     height: ${(props) => props.height}px;
     left: ${(props) => props.left}px;
 `;
+
