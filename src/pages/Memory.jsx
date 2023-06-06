@@ -4,7 +4,7 @@ import { getDatabase, ref, onValue, set } from "firebase/database";
 import { auth } from "../apis/firebaseConfig"
 import { onAuthStateChanged } from "firebase/auth";
 import { CuponContext } from "../context/CuponContext";
-import Board from '../components/Memory/Board/Board';
+import Board from "../components/Board";
 const emojiList = [...'🍕🎮🎱💩⚽🥅'];
 
 const Memory = () => {

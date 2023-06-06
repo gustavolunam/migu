@@ -1,5 +1,5 @@
 import {  useState, useContext, useEffect } from "react";
-import '../styles/Cuadros.css';
+import '../styles/Squares.css';
 import { CuponContext } from "../context/CuponContext";
 import MC from "../components/makeCuadros";
 

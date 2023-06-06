@@ -1,4 +1,4 @@
-import '../styles/Cuadros.css';
+import '../styles/Squares.css';
 import { useState, useContext } from 'react';
 import Popup from './Popup.jsx';
 import { CuponContext } from "../context/CuponContext";
@@ -16,7 +16,6 @@ const makeCuadros = () => {
     setActive(true)
     
   } 
-
 
     const renderSquares = () => {
         const squares = [];

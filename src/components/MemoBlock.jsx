@@ -1,4 +1,4 @@
-import './MemoBlock.css';
+import '../styles/MemoBlock.css';
 
 const MemoBlock = ({animating, handleMemoClick, memoBlock}) => (
     <div className="memo-block" onClick={() => (!memoBlock.flipped && !animating) && handleMemoClick(memoBlock)}>
