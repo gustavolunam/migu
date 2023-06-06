@@ -1,7 +1,7 @@
 import {  useState, useContext, useEffect } from "react";
 import '../styles/Squares.css';
 import { CuponContext } from "../context/CuponContext";
-import MC from "../components/makeCuadros";
+import MC from "../components/makeSquares";
 
 function Squares() {
 
