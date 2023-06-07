@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState, useEffect, useContext } from "react";
 import { CuponContext } from "../context/CuponContext";
 import { Link } from "react-router-dom";
+import Popup from '../components/GamePopup.jsx';
 
 const BIRD_SIZE = 20;
 const GAME_WIDTH = 500;
@@ -18,6 +19,7 @@ function BirdGame() {
     const [obstacleLeft, setObstacleLeft] = useState(GAME_WIDTH - OBSTACLE_WIDTH);
     const [score, setScore] = useState(0);
     const [gameWon, setGameWon] = useState(false);
+    const [active, setActive] = useState(true);
     const { addToCupon } = useContext(CuponContext);
     const guide = "¡Llega a 10 puntos para ganar!";
 
@@ -79,7 +81,7 @@ function BirdGame() {
     };
 
     useEffect(() => {
-        if (score > 9) {
+        if (score > 2) {
             setGameWon(true);
             setScore(score => 10);
             setGameHasStarted(false);
@@ -102,12 +104,16 @@ function BirdGame() {
                 <Bird size={BIRD_SIZE} top={birdPosition} />
             </GameBox>
             {gameWon && (
-                <div className="popup">
-                    <h2 className="winMsg">FELICIDADES</h2>
-                    <Link to="/cupons">
-                        <button type="button" onClick={addToCupon} className="returnButton">Regresar</button>
-                    </Link>
-                </div>
+                <Popup trigger={active} setTrigger={setActive} >
+                    <div className = "popUpBorder">
+                        <h1>Ganaste</h1>
+                        <Link to = "/cupons">
+                        <button className="popUpbtn" onClick = {addToCupon}>
+                            <h3>Regresar</h3>
+                        </button>
+                        </Link>
+                    </div>
+                </Popup >
             )}
             <span>{score}</span>
             <h4> {guide} </h4>

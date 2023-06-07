@@ -2,6 +2,7 @@ import { Link} from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { CuponContext } from "../context/CuponContext";
 import Board from "../components/Board";
+import Popup from '../components/GamePopup.jsx';
 const emojiList = [...'🍕🎮🎱💩⚽🥅'];
 
 const Memory = () => {
@@ -9,6 +10,7 @@ const Memory = () => {
   const [selectedMemoBlock, setselectedMemoBlock] = useState(null);
   const [animating, setAnimating] = useState(false);
   const [gameWon, setGameWon] = useState(false);
+  const [active, setActive] = useState(true);
   const { addToCupon } = useContext(CuponContext);
 
   useEffect( () => {
@@ -54,12 +56,16 @@ const Memory = () => {
     <>
       <Board memoBlocks={shuffledMemoBlocks} animating={animating} handleMemoClick={handleMemoClick} />
       {gameWon && (
-        <div className="popup">
-          <h2 className ="winMsg">FELICIDADES</h2>
-          <Link to = "/cupons">
-            <button type="button" onClick={addToCupon} className = "returnButton">Regresar</button>
-          </Link>
-        </div>
+          <Popup trigger={active} setTrigger={setActive} >
+            <div className = "popUpBorder">
+              <h1>Ganaste</h1>
+              <Link to = "/cupons">
+              <button className="popUpbtn" onClick = {addToCupon}>
+                    <h3>Regresar</h3>
+                </button>
+              </Link>
+            </div>
+          </Popup >
       )}
     </>
   );

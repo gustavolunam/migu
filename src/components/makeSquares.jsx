@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { Link} from "react-router-dom";
-import Popup from './Popup.jsx';
+import Popup from './GamePopup.jsx';
 import { CuponContext } from "../context/CuponContext";
 import '../styles/Squares.css';
 
@@ -44,7 +44,6 @@ const makeCuadros = () => {
                         <h3>Regresar</h3>
                     </button>
                   </Link>
-                    
                 </div>
             </Popup >
         </>
