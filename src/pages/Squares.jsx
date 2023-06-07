@@ -8,7 +8,7 @@ function Squares() {
   return (
     <>
       <div className="cuadrosHeader">
-        <h1>Selecciona un cuadro verde</h1>
+        <h1>Selecciona el cuadro verde</h1>
       </div>
       <div className="cuadrosContent">
         <MC />
