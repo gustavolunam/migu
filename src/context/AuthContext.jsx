@@ -18,6 +18,10 @@ export const AuthContextProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (!currentUser) {
+                setUser(null);
+                return;
+            }
             const db = getDatabase();
             const uid = currentUser.uid;
             const dbRef1 = ref(db, `Usuarios/${uid}/`);

@@ -3,7 +3,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
     max-width: 90vw;
-    margin: 100px auto;
+    margin: 200px auto;
 }
 
 .returnButton {
