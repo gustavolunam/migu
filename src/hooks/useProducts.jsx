@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
 import Axios from "axios";
 
 const useProducts = () => {
@@ -8,35 +7,8 @@ const useProducts = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-
     setIsLoading(true);
-    /*
-    const db=getDatabase();
-    const dbRef = ref(db, 'Productos');
 
-    let fetchedProductos=[];
-
-    onValue(dbRef, (snapshot) => {
-
-        snapshot.forEach(childSnapshot=>{
-        const id=childSnapshot.key;
-        const{imagen, nombre, precio} =childSnapshot.val();
-
-        fetchedProductos.push({
-            id, imagen, nombre, precio
-        });
-    });
-    
-    setProducts(fetchedProductos);
-    setIsLoading(false);
-    setError(false);
-
-    }, (errorObject) => {
-        console.log("The read failed"  + errorObject.name);
-        setError(true)
-        }
-    );
-    */
     let fetchedProductos = [];
 
     Axios.get("https://apimigu.vercel.app/")
@@ -55,13 +27,11 @@ const useProducts = () => {
           setProducts(fetchedProductos);
         });
       });
-     setIsLoading(false);
-    
-
-     setError(false);
+    setIsLoading(false);
+    setError(false);
   }, [])
   return [products, isLoading, error]
-  
+
 }
 
 export { useProducts };

@@ -2,7 +2,6 @@ import Logo from '../assets/logo.png'
 import { Link } from 'react-router-dom'
 import '../styles/Start.css'
 
-
 function Start() {
     return (
         <div className="start" >

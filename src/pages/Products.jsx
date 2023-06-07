@@ -1,14 +1,17 @@
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom'
-import List from '../components/List';
-
-//import useProductDisplay from "../hooks/useProducts"
-//import { productData } from "../data/productData"
+import { CartContext } from '../context/CartContext';
 import { useProducts } from '../hooks/useProducts';
-import '../styles/Products.css'
+import List from '../components/List';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import '../styles/Products.css';
+
 
 function Products() {
+  const [query, setQuery] = useState("")
+  const { addToCart } = useContext(CartContext);
   const [products, areProductsLoading, error] = useProducts();
-  //const DisplayProducts = useProductDisplay(productData);
 
   return (
     <>
@@ -16,13 +19,14 @@ function Products() {
         <>
           <div>
             <div className='productsHeader'>
-              <Link to="/shopping-list">
-                <button> Regresar </button>
+              <Link className='backToList' to="/shopping-list">
+                <ArrowBackIosNewIcon className='arrowBack' fontSize='medium' />
               </Link>
               <h1>Agrega un Producto</h1>
             </div>
             <div className='productsContent'>
-              <List items={products} />
+            <input className="search" placeholder="Nombre Producto" onChange={event => setQuery(event.target.value)} />
+              <List items={products} query = {query} icon={<AddCircleIcon className='addIcon' fontSize='large' />} action={addToCart} alert={"Producto agregado exitosamente!"}/>
             </div>
           </div>
         </>

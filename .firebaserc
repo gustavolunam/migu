@@ -1,8 +1,10 @@
 {
   "projects": {
-    "default": "projectmigu-af702",
+    "default": "migu-test",
     "test": "migu-test",
-    "prod": "projectmigu-af702"
+    "prod": "projectmigu-af702",
+    "miris": "miris-aaaaa",
+    "migutest": "migu-test"
   },
   "targets": {},
   "etags": {}

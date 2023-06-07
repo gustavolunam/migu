@@ -8,8 +8,8 @@ function Home() {
             <div className='headerContainer'>
                 <h1> MIGÜ </h1>
                 <p> CONOCE A LOS AMIGÜS </p>
-                <Link to="/map">
-                    <button> EXPLORAR </button>
+                <Link to="https://glunam.itch.io/mapa-migu">
+                    <button> Explorar </button>
                 </Link>
             </div>
         </div>
