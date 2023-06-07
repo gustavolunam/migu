@@ -19,7 +19,7 @@ const makeCuadros = () => {
         const squares = [];
         const color = "greenSqr";
     
-        for (let i = 0; i < 16; i++) {
+        for (let i = 0; i <4; i++) {
           if (i % 4 == 0) {
             squares.push(<button className="redSqr" />);
           } else if (i % 4 == 1) {
@@ -30,6 +30,7 @@ const makeCuadros = () => {
           } else {
             squares.push(<button className="yellowSqr" />);
           }
+          squares.push(<br/>)
         }
         return squares;
       };

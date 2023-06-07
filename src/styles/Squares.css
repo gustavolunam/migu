@@ -3,25 +3,31 @@
     width: 100vw;
     position: fixed;
     top: 0px;
-    color: green;
+    color: blue;
     text-align: center;
+    margin: 20px auto;
+    font-size: 25px;
 }
 
-.cuadrosHeader h1 {
-    margin: 20px auto;
-    font-size: 35px;
+.cuadrosContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5%;
 }
 
 .redSqr {
     aspect-ratio: 1 / 1;
     background-color: red;
     border-radius: 10px;
+    padding: 75px;
 }
 
 .blueSqr {
     aspect-ratio: 1 / 1;
     background-color: blue;
     border-radius: 10px;
+    padding: 75px;
 }
 
 .greenSqr {
