@@ -81,7 +81,7 @@ function BirdGame() {
     };
 
     useEffect(() => {
-        if (score > 2) {
+        if (score > 9) {
             setGameWon(true);
             setScore(score => 10);
             setGameHasStarted(false);
